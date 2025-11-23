@@ -99,6 +99,7 @@ const Index = () => {
               <GiftBox
                 number={gift.number}
                 image={gift.image}
+                rippedImage={gift.rippedImage}
                 isLocked={!isGiftUnlocked(gift.number, testMode)}
                 isOpened={openedGifts.includes(gift.number)}
                 onClick={() => handleGiftClick(gift.number)}

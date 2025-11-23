@@ -5,6 +5,7 @@ import { Lock } from "lucide-react";
 interface GiftBoxProps {
   number: number;
   image: string;
+  rippedImage: string;
   isLocked: boolean;
   isOpened: boolean;
   onClick: () => void;
@@ -13,13 +14,14 @@ interface GiftBoxProps {
   onAnimationEnd?: () => void;
 }
 
-export const GiftBox = ({ number, image, isLocked, isOpened, onClick, isOpening, animationUrl, onAnimationEnd }: GiftBoxProps) => {
+export const GiftBox = ({ number, image, rippedImage, isLocked, isOpened, onClick, isOpening, animationUrl, onAnimationEnd }: GiftBoxProps) => {
   const [isHovered, setIsHovered] = useState(false);
   
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   
   const clickable = !isLocked && !isOpening;
+  const displayImage = isOpened ? rippedImage : image;
 
   const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [10, -10]), {
     stiffness: 300,
@@ -64,7 +66,6 @@ export const GiftBox = ({ number, image, isLocked, isOpened, onClick, isOpening,
           relative aspect-square rounded-lg overflow-hidden
           preserve-3d gift-shimmer
           ${isLocked ? 'cursor-not-allowed opacity-60' : 'cursor-pointer'}
-          ${isOpened ? 'opacity-50' : ''}
         `}
         style={{
           rotateX,
@@ -76,7 +77,7 @@ export const GiftBox = ({ number, image, isLocked, isOpened, onClick, isOpening,
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         <img
-          src={image}
+          src={displayImage}
           alt={`Day ${number}`}
           className="w-full h-full object-cover"
         />
@@ -107,15 +108,6 @@ export const GiftBox = ({ number, image, isLocked, isOpened, onClick, isOpening,
         {isLocked && (
           <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center">
             <Lock className="w-8 h-8 text-muted-foreground" />
-          </div>
-        )}
-
-        {/* Opened indicator */}
-        {isOpened && !isLocked && (
-          <div className="absolute inset-0 bg-background/40 backdrop-blur-[2px] flex items-center justify-center">
-            <span className="text-champagne text-sm font-medium tracking-wider">
-              OPENED
-            </span>
           </div>
         )}
 

@@ -129,6 +129,7 @@ const Index = () => {
         onClose={handleCloseModal}
         giftNumber={selectedGift || 0}
         contentUrl={gifts.find(g => g.number === selectedGift)?.contentUrl}
+        themeColor={gifts.find(g => g.number === selectedGift)?.themeColor || 'green'}
       />
     </div>
   );

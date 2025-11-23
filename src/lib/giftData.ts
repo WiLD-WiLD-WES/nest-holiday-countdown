@@ -32,6 +32,7 @@ export interface Gift {
   contentUrl?: string;
   animationUrl?: string;
   unlockDate: Date;
+  themeColor: 'green' | 'red' | 'blue';
 }
 
 // Direct mapping of all 25 unique gift images
@@ -43,6 +44,15 @@ const giftImages = [
   day21, day22, day23, day24, day25
 ];
 
+// Color pattern for each gift's wrapping paper (repeating green-red-blue)
+const giftColors: ('green' | 'red' | 'blue')[] = [
+  'green', 'red', 'blue', 'green', 'red',      // Days 1-5
+  'blue', 'green', 'red', 'blue', 'green',     // Days 6-10
+  'red', 'blue', 'green', 'red', 'blue',       // Days 11-15
+  'green', 'red', 'blue', 'green', 'red',      // Days 16-20
+  'blue', 'green', 'red', 'blue', 'green'      // Days 21-25
+];
+
 export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => {
   const number = i + 1;
   return {
@@ -51,6 +61,7 @@ export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => {
     contentUrl: undefined,
     animationUrl: number === 1 ? day01Anim : undefined,
     unlockDate: new Date(2025, 11, number),
+    themeColor: giftColors[i],
   };
 });
 

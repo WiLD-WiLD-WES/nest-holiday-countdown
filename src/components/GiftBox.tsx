@@ -8,13 +8,18 @@ interface GiftBoxProps {
   isLocked: boolean;
   isOpened: boolean;
   onClick: () => void;
+  isOpening?: boolean;
+  animationUrl?: string;
+  onAnimationEnd?: () => void;
 }
 
-export const GiftBox = ({ number, image, isLocked, isOpened, onClick }: GiftBoxProps) => {
+export const GiftBox = ({ number, image, isLocked, isOpened, onClick, isOpening, animationUrl, onAnimationEnd }: GiftBoxProps) => {
   const [isHovered, setIsHovered] = useState(false);
   
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  
+  const clickable = !isLocked && !isOpening;
 
   const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [10, -10]), {
     stiffness: 300,
@@ -27,7 +32,7 @@ export const GiftBox = ({ number, image, isLocked, isOpened, onClick }: GiftBoxP
   });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (isLocked) return;
+    if (!clickable) return;
     
     const rect = e.currentTarget.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -49,14 +54,14 @@ export const GiftBox = ({ number, image, isLocked, isOpened, onClick }: GiftBoxP
   return (
     <motion.div
       className="perspective-1000 relative"
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => !isLocked && setIsHovered(true)}
+      onMouseMove={clickable ? handleMouseMove : undefined}
+      onMouseEnter={() => clickable && setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      onClick={!isLocked ? onClick : undefined}
+      onClick={clickable ? onClick : undefined}
     >
       <motion.div
         className={`
-          relative aspect-square rounded-lg overflow-hidden cursor-pointer
+          relative aspect-square rounded-lg overflow-hidden
           preserve-3d gift-shimmer
           ${isLocked ? 'cursor-not-allowed opacity-60' : 'cursor-pointer'}
           ${isOpened ? 'opacity-50' : ''}
@@ -66,8 +71,8 @@ export const GiftBox = ({ number, image, isLocked, isOpened, onClick }: GiftBoxP
           rotateY,
           transformStyle: "preserve-3d",
         }}
-        whileHover={!isLocked ? { scale: 1.05 } : {}}
-        whileTap={!isLocked ? { scale: 0.95 } : {}}
+        whileHover={clickable ? { scale: 1.05 } : {}}
+        whileTap={clickable ? { scale: 0.95 } : {}}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         <img
@@ -76,8 +81,20 @@ export const GiftBox = ({ number, image, isLocked, isOpened, onClick }: GiftBoxP
           className="w-full h-full object-cover"
         />
         
+        {/* Opening animation video overlay */}
+        {isOpening && animationUrl && (
+          <video
+            src={animationUrl}
+            autoPlay
+            playsInline
+            muted
+            className="absolute inset-0 w-full h-full object-cover z-20"
+            onEnded={onAnimationEnd}
+          />
+        )}
+        
         {/* Glow effect on hover */}
-        {isHovered && !isLocked && (
+        {isHovered && !isOpening && (
           <motion.div
             className="absolute inset-0 bg-gold/20 mix-blend-overlay"
             initial={{ opacity: 0 }}

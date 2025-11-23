@@ -24,10 +24,13 @@ import day23 from "@/assets/gifts/day-23.jpg";
 import day24 from "@/assets/gifts/day-24.jpg";
 import day25 from "@/assets/gifts/day-25.jpg";
 
+import day01Anim from "@/assets/animations/day-01.mp4";
+
 export interface Gift {
   number: number;
   image: string;
   contentUrl?: string;
+  animationUrl?: string;
   unlockDate: Date;
 }
 
@@ -40,12 +43,16 @@ const giftImages = [
   day21, day22, day23, day24, day25
 ];
 
-export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => ({
-  number: i + 1,
-  image: giftImages[i],
-  contentUrl: undefined, // Will be populated with actual content URLs
-  unlockDate: new Date(2025, 11, i + 1), // December 1-25, 2025
-}));
+export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => {
+  const number = i + 1;
+  return {
+    number,
+    image: giftImages[i],
+    contentUrl: undefined,
+    animationUrl: number === 1 ? day01Anim : undefined,
+    unlockDate: new Date(2025, 11, number),
+  };
+});
 
 export const isGiftUnlocked = (giftNumber: number, testMode: boolean = false): boolean => {
   if (testMode) return true;

@@ -8,6 +8,21 @@ import day07 from "@/assets/gifts/day-07.jpg";
 import day08 from "@/assets/gifts/day-08.jpg";
 import day09 from "@/assets/gifts/day-09.jpg";
 import day10 from "@/assets/gifts/day-10.jpg";
+import day11 from "@/assets/gifts/day-11.jpg";
+import day12 from "@/assets/gifts/day-12.jpg";
+import day13 from "@/assets/gifts/day-13.jpg";
+import day14 from "@/assets/gifts/day-14.jpg";
+import day15 from "@/assets/gifts/day-15.jpg";
+import day16 from "@/assets/gifts/day-16.jpg";
+import day17 from "@/assets/gifts/day-17.jpg";
+import day18 from "@/assets/gifts/day-18.jpg";
+import day19 from "@/assets/gifts/day-19.jpg";
+import day20 from "@/assets/gifts/day-20.jpg";
+import day21 from "@/assets/gifts/day-21.jpg";
+import day22 from "@/assets/gifts/day-22.jpg";
+import day23 from "@/assets/gifts/day-23.jpg";
+import day24 from "@/assets/gifts/day-24.jpg";
+import day25 from "@/assets/gifts/day-25.jpg";
 
 export interface Gift {
   number: number;
@@ -16,15 +31,18 @@ export interface Gift {
   unlockDate: Date;
 }
 
-// Helper to get images for remaining days (cycling through available images)
-const getImageForDay = (day: number): string => {
-  const images = [day01, day02, day03, day04, day05, day06, day07, day08, day09, day10];
-  return images[(day - 1) % images.length];
-};
+// Direct mapping of all 25 unique gift images
+const giftImages = [
+  day01, day02, day03, day04, day05,
+  day06, day07, day08, day09, day10,
+  day11, day12, day13, day14, day15,
+  day16, day17, day18, day19, day20,
+  day21, day22, day23, day24, day25
+];
 
 export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => ({
   number: i + 1,
-  image: getImageForDay(i + 1),
+  image: giftImages[i],
   contentUrl: undefined, // Will be populated with actual content URLs
   unlockDate: new Date(2025, 11, i + 1), // December 1-25, 2025
 }));

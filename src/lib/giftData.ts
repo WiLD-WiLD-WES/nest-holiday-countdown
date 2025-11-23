@@ -124,3 +124,7 @@ export const markGiftAsOpened = (giftNumber: number): void => {
     localStorage.setItem('nest-opened-gifts', JSON.stringify(opened));
   }
 };
+
+export const clearOpenedGifts = (): void => {
+  localStorage.removeItem('nest-opened-gifts');
+};

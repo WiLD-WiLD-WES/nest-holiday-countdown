@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { GiftBox } from "@/components/GiftBox";
 import { GiftModal } from "@/components/GiftModal";
-import { gifts, isGiftUnlocked, getOpenedGifts, markGiftAsOpened } from "@/lib/giftData";
+import { gifts, isGiftUnlocked, getOpenedGifts, markGiftAsOpened, clearOpenedGifts } from "@/lib/giftData";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Package } from "lucide-react";
 
 const Index = () => {
   const [testMode, setTestMode] = useState(true);
@@ -41,6 +43,11 @@ const Index = () => {
     setSelectedGift(null);
   };
 
+  const handleResetGifts = () => {
+    clearOpenedGifts();
+    setOpenedGifts([]);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald via-background to-navy relative overflow-hidden">
       {/* Decorative background elements */}
@@ -65,21 +72,34 @@ const Index = () => {
           </p>
         </motion.div>
 
-        {/* Test Mode Toggle */}
+        {/* Control Panel */}
         <motion.div
-          className="flex items-center justify-center gap-3 mb-8"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          <Label htmlFor="test-mode" className="text-sm text-muted-foreground">
-            Test Mode (All Unlocked)
-          </Label>
-          <Switch
-            id="test-mode"
-            checked={testMode}
-            onCheckedChange={setTestMode}
-          />
+          {/* Test Mode Toggle */}
+          <div className="flex items-center gap-3">
+            <Label htmlFor="test-mode" className="text-sm text-muted-foreground">
+              Test Mode (All Unlocked)
+            </Label>
+            <Switch
+              id="test-mode"
+              checked={testMode}
+              onCheckedChange={setTestMode}
+            />
+          </div>
+
+          {/* Re-Wrap Button */}
+          <Button
+            onClick={handleResetGifts}
+            variant="outline"
+            className="border-gold/30 text-gold hover:bg-gold/10 hover:border-gold transition-all"
+          >
+            <Package className="w-4 h-4 mr-2" />
+            Re-Wrap All Gifts
+          </Button>
         </motion.div>
 
         {/* Gift Grid */}

@@ -44,13 +44,13 @@ const giftImages = [
   day21, day22, day23, day24, day25
 ];
 
-// Color pattern for each gift's wrapping paper (repeating green-red-blue)
+// Exact color pattern for each gift's wrapping paper
 const giftColors: ('green' | 'red' | 'blue')[] = [
-  'green', 'red', 'blue', 'green', 'red',      // Days 1-5
-  'blue', 'green', 'red', 'blue', 'green',     // Days 6-10
-  'red', 'blue', 'green', 'red', 'blue',       // Days 11-15
-  'green', 'red', 'blue', 'green', 'red',      // Days 16-20
-  'blue', 'green', 'red', 'blue', 'green'      // Days 21-25
+  'green', 'red', 'green', 'blue', 'red',      // Days 1-5
+  'blue', 'green', 'blue', 'red', 'green',     // Days 6-10
+  'red', 'blue', 'red', 'green', 'blue',       // Days 11-15
+  'blue', 'green', 'blue', 'red', 'blue',      // Days 16-20
+  'green', 'red', 'green', 'blue', 'red'       // Days 21-25
 ];
 
 export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => {

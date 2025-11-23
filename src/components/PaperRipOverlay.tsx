@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import ripped01 from "@/assets/ripped/day-01.jpg";
 import ripped02 from "@/assets/ripped/day-02.jpg";
 import ripped03 from "@/assets/ripped/day-03.jpg";
@@ -32,7 +31,6 @@ interface PaperRipOverlayProps {
   giftNumber: number;
 }
 
-// Array of all 25 ripped paper images
 const rippedPaperImages = [
   ripped01, ripped02, ripped03, ripped04, ripped05,
   ripped06, ripped07, ripped08, ripped09, ripped10,
@@ -42,61 +40,8 @@ const rippedPaperImages = [
 ];
 
 export const PaperRipOverlay = ({ isActive, onComplete, giftNumber }: PaperRipOverlayProps) => {
-  const [ripDirection, setRipDirection] = useState<'up' | 'down' | 'left' | 'right' | 'diagonal-tl' | 'diagonal-tr'>('up');
-
-  useEffect(() => {
-    if (isActive) {
-      // Randomize rip direction
-      const directions: typeof ripDirection[] = ['up', 'down', 'left', 'right', 'diagonal-tl', 'diagonal-tr'];
-      setRipDirection(directions[Math.floor(Math.random() * directions.length)]);
-    }
-  }, [isActive]);
-
-  const getVariants = () => {
-    const baseVariants = {
-      initial: { scale: 1, opacity: 1 },
-      exit: { scale: 0, opacity: 0 },
-    };
-
-    switch (ripDirection) {
-      case 'up':
-        return {
-          ...baseVariants,
-          exit: { ...baseVariants.exit, y: -500, rotate: -15 },
-        };
-      case 'down':
-        return {
-          ...baseVariants,
-          exit: { ...baseVariants.exit, y: 500, rotate: 15 },
-        };
-      case 'left':
-        return {
-          ...baseVariants,
-          exit: { ...baseVariants.exit, x: -500, rotate: -10 },
-        };
-      case 'right':
-        return {
-          ...baseVariants,
-          exit: { ...baseVariants.exit, x: 500, rotate: 10 },
-        };
-      case 'diagonal-tl':
-        return {
-          ...baseVariants,
-          exit: { ...baseVariants.exit, x: -400, y: -400, rotate: -25 },
-        };
-      case 'diagonal-tr':
-        return {
-          ...baseVariants,
-          exit: { ...baseVariants.exit, x: 400, y: -400, rotate: 25 },
-        };
-      default:
-        return baseVariants;
-    }
-  };
-
   if (!isActive) return null;
 
-  // Get the correct ripped paper image for this gift
   const rippedPaperImage = rippedPaperImages[giftNumber - 1];
 
   return (
@@ -106,20 +51,102 @@ export const PaperRipOverlay = ({ isActive, onComplete, giftNumber }: PaperRipOv
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      {/* Paper ripping effect with actual ripped paper image */}
-      <motion.img
-        src={rippedPaperImage}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover"
-        variants={getVariants()}
-        initial="initial"
-        animate="exit"
+      {/* Top Left Section */}
+      <motion.div
+        className="absolute inset-0 overflow-hidden"
+        style={{ clipPath: "polygon(0 0, 50% 0, 50% 50%, 0 50%)" }}
+        initial={{ x: 0, y: 0, rotate: 0 }}
+        animate={{ 
+          x: -250, 
+          y: -250, 
+          rotate: -15,
+          opacity: 0
+        }}
         transition={{
-          duration: 0.8,
+          duration: 0.7,
           ease: [0.34, 1.56, 0.64, 1],
+          delay: 0
+        }}
+      >
+        <img
+          src={rippedPaperImage}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </motion.div>
+
+      {/* Top Right Section */}
+      <motion.div
+        className="absolute inset-0 overflow-hidden"
+        style={{ clipPath: "polygon(50% 0, 100% 0, 100% 50%, 50% 50%)" }}
+        initial={{ x: 0, y: 0, rotate: 0 }}
+        animate={{ 
+          x: 250, 
+          y: -250, 
+          rotate: 15,
+          opacity: 0
+        }}
+        transition={{
+          duration: 0.7,
+          ease: [0.34, 1.56, 0.64, 1],
+          delay: 0.05
+        }}
+      >
+        <img
+          src={rippedPaperImage}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </motion.div>
+
+      {/* Bottom Left Section */}
+      <motion.div
+        className="absolute inset-0 overflow-hidden"
+        style={{ clipPath: "polygon(0 50%, 50% 50%, 50% 100%, 0 100%)" }}
+        initial={{ x: 0, y: 0, rotate: 0 }}
+        animate={{ 
+          x: -250, 
+          y: 250, 
+          rotate: 15,
+          opacity: 0
+        }}
+        transition={{
+          duration: 0.7,
+          ease: [0.34, 1.56, 0.64, 1],
+          delay: 0.1
         }}
         onAnimationComplete={onComplete}
-      />
+      >
+        <img
+          src={rippedPaperImage}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </motion.div>
+
+      {/* Bottom Right Section */}
+      <motion.div
+        className="absolute inset-0 overflow-hidden"
+        style={{ clipPath: "polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%)" }}
+        initial={{ x: 0, y: 0, rotate: 0 }}
+        animate={{ 
+          x: 250, 
+          y: 250, 
+          rotate: -15,
+          opacity: 0
+        }}
+        transition={{
+          duration: 0.7,
+          ease: [0.34, 1.56, 0.64, 1],
+          delay: 0.15
+        }}
+      >
+        <img
+          src={rippedPaperImage}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </motion.div>
     </motion.div>
   );
 };

@@ -7,9 +7,18 @@ interface GiftModalProps {
   onClose: () => void;
   giftNumber: number;
   contentUrl?: string;
+  themeColor: 'green' | 'red' | 'blue';
 }
 
-export const GiftModal = ({ isOpen, onClose, giftNumber, contentUrl }: GiftModalProps) => {
+export const GiftModal = ({ isOpen, onClose, giftNumber, contentUrl, themeColor }: GiftModalProps) => {
+  // Define background colors for each theme
+  const colorMap = {
+    green: 'hsl(145, 63%, 20%)',   // Deep festive green
+    red: 'hsl(0, 63%, 31%)',       // Deep festive red
+    blue: 'hsl(210, 65%, 33%)',    // Deep festive blue
+  };
+
+  const bgColor = colorMap[themeColor];
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -42,7 +51,10 @@ export const GiftModal = ({ isOpen, onClose, giftNumber, contentUrl }: GiftModal
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
           >
-            <div className="relative w-full max-w-4xl max-h-[90vh] bg-card rounded-2xl overflow-hidden shadow-2xl">
+            <div 
+              className="relative w-full max-w-4xl max-h-[90vh] rounded-2xl overflow-hidden shadow-2xl"
+              style={{ backgroundColor: bgColor }}
+            >
               {/* Close button */}
               <button
                 onClick={onClose}
@@ -62,7 +74,7 @@ export const GiftModal = ({ isOpen, onClose, giftNumber, contentUrl }: GiftModal
                     Day {giftNumber}
                   </h2>
                   
-                  <div className="bg-background/50 rounded-xl p-8 min-h-[400px] flex items-center justify-center">
+                  <div className="bg-black/20 rounded-xl p-8 min-h-[400px] flex items-center justify-center">
                     {contentUrl ? (
                       contentUrl.match(/\.(jpg|jpeg|png|gif|webp)$/i) ? (
                         <img 

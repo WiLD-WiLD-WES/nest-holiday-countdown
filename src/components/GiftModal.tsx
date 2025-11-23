@@ -11,11 +11,11 @@ interface GiftModalProps {
 }
 
 export const GiftModal = ({ isOpen, onClose, giftNumber, contentUrl, themeColor }: GiftModalProps) => {
-  // Define background colors for each theme
+  // Define luxury background colors for each theme
   const colorMap = {
-    green: 'hsl(145, 63%, 20%)',   // Deep festive green
-    red: 'hsl(0, 63%, 31%)',       // Deep festive red
-    blue: 'hsl(210, 65%, 33%)',    // Deep festive blue
+    green: 'hsl(162, 45%, 22%)',   // Deep emerald
+    red: 'hsl(346, 60%, 28%)',     // Deep burgundy
+    blue: 'hsl(220, 55%, 25%)',    // Deep navy
   };
 
   const bgColor = colorMap[themeColor];

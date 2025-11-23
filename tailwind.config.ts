@@ -47,6 +47,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        emerald: "hsl(var(--emerald))",
+        burgundy: "hsl(var(--burgundy))",
+        navy: "hsl(var(--navy))",
+        gold: "hsl(var(--gold))",
+        champagne: "hsl(var(--champagne))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -84,6 +89,10 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.6s ease-out",
+        "scale-in": "scale-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "shimmer": "shimmer 3s infinite",
+        "rip": "rip 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
       },
     },
   },

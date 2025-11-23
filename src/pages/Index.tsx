@@ -125,7 +125,6 @@ const Index = () => {
                 onClick={() => handleGiftClick(gift.number)}
                 isOpening={openingGift === gift.number}
                 animationUrl={gift.animationUrl}
-                soundUrl={gift.soundUrl}
                 onAnimationEnd={() => handleAnimationEnd(gift.number)}
               />
             </motion.div>

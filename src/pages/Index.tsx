@@ -11,6 +11,7 @@ const Index = () => {
   const [testMode, setTestMode] = useState(true); // Set to true for testing
   const [selectedGift, setSelectedGift] = useState<number | null>(null);
   const [isRipping, setIsRipping] = useState(false);
+  const [rippingGift, setRippingGift] = useState<number>(0);
   const [openedGifts, setOpenedGifts] = useState<number[]>([]);
 
   useEffect(() => {
@@ -20,6 +21,7 @@ const Index = () => {
   const handleGiftClick = (giftNumber: number) => {
     if (!isGiftUnlocked(giftNumber, testMode)) return;
     
+    setRippingGift(giftNumber);
     setIsRipping(true);
     
     setTimeout(() => {
@@ -120,7 +122,7 @@ const Index = () => {
       <PaperRipOverlay
         isActive={isRipping}
         onComplete={handleRipComplete}
-        giftNumber={selectedGift || 0}
+        giftNumber={rippingGift}
       />
 
       {/* Gift Modal */}

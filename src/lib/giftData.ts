@@ -61,12 +61,19 @@ import day08Anim from "@/assets/animations/day-08.mp4";
 import day09Anim from "@/assets/animations/day-09.mp4";
 import day10Anim from "@/assets/animations/day-10.mp4";
 
+import rip01 from "@/assets/sounds/rip-01.mp3";
+import rip02 from "@/assets/sounds/rip-02.mp3";
+import rip03 from "@/assets/sounds/rip-03.mp3";
+import rip04 from "@/assets/sounds/rip-04.mp3";
+import rip05 from "@/assets/sounds/rip-05.mp3";
+
 export interface Gift {
   number: number;
   image: string;
   rippedImage: string;
   contentUrl?: string;
   animationUrl?: string;
+  soundUrl?: string;
   unlockDate: Date;
   themeColor: 'green' | 'red' | 'blue';
 }
@@ -104,6 +111,12 @@ const animationUrls = [
   day06Anim, day07Anim, day08Anim, day09Anim, day10Anim
 ];
 
+// Paper ripping sound effects for gifts 1-10 (5 variations, repeated)
+const soundUrls = [
+  rip01, rip02, rip03, rip04, rip05,
+  rip01, rip02, rip03, rip04, rip05
+];
+
 export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => {
   const number = i + 1;
   return {
@@ -112,6 +125,7 @@ export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => {
     rippedImage: rippedImages[i],
     contentUrl: undefined,
     animationUrl: number <= 10 ? animationUrls[i] : undefined,
+    soundUrl: number <= 10 ? soundUrls[i] : undefined,
     unlockDate: new Date(2025, 11, number),
     themeColor: giftColors[i],
   };

@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Lock } from "lucide-react";
 
 interface GiftBoxProps {
@@ -11,26 +11,14 @@ interface GiftBoxProps {
   onClick: () => void;
   isOpening?: boolean;
   animationUrl?: string;
-  soundUrl?: string;
   onAnimationEnd?: () => void;
 }
 
-export const GiftBox = ({ number, image, rippedImage, isLocked, isOpened, onClick, isOpening, animationUrl, soundUrl, onAnimationEnd }: GiftBoxProps) => {
+export const GiftBox = ({ number, image, rippedImage, isLocked, isOpened, onClick, isOpening, animationUrl, onAnimationEnd }: GiftBoxProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
   
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-
-  // Play sound when opening animation starts
-  useEffect(() => {
-    if (isOpening && soundUrl && audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play().catch(err => 
-        console.error('Sound playback error:', err)
-      );
-    }
-  }, [isOpening, soundUrl]);
   
   const clickable = !isLocked && !isOpening;
   const displayImage = isOpened ? rippedImage : image;
@@ -93,11 +81,6 @@ export const GiftBox = ({ number, image, rippedImage, isLocked, isOpened, onClic
           alt={`Day ${number}`}
           className="w-full h-full object-cover"
         />
-        
-        {/* Hidden audio element for sound effects */}
-        {soundUrl && (
-          <audio ref={audioRef} src={soundUrl} preload="auto" />
-        )}
         
         {/* Opening animation video overlay */}
         {isOpening && animationUrl && (

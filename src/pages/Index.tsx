@@ -1,17 +1,15 @@
 import { useState, useEffect } from "react";
 import { GiftBox } from "@/components/GiftBox";
 import { GiftModal } from "@/components/GiftModal";
-import { PaperRipOverlay } from "@/components/PaperRipOverlay";
 import { gifts, isGiftUnlocked, getOpenedGifts, markGiftAsOpened } from "@/lib/giftData";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
 
 const Index = () => {
-  const [testMode, setTestMode] = useState(true); // Set to true for testing
+  const [testMode, setTestMode] = useState(true);
   const [selectedGift, setSelectedGift] = useState<number | null>(null);
-  const [isRipping, setIsRipping] = useState(false);
-  const [rippingGift, setRippingGift] = useState<number>(0);
+  const [openingGift, setOpeningGift] = useState<number | null>(null);
   const [openedGifts, setOpenedGifts] = useState<number[]>([]);
 
   useEffect(() => {
@@ -21,22 +19,26 @@ const Index = () => {
   const handleGiftClick = (giftNumber: number) => {
     if (!isGiftUnlocked(giftNumber, testMode)) return;
     
-    setRippingGift(giftNumber);
-    setIsRipping(true);
+    const gift = gifts.find(g => g.number === giftNumber);
     
-    setTimeout(() => {
+    if (gift?.animationUrl) {
+      setOpeningGift(giftNumber);
+    } else {
       setSelectedGift(giftNumber);
       markGiftAsOpened(giftNumber);
       setOpenedGifts(getOpenedGifts());
-    }, 800);
+    }
+  };
+
+  const handleAnimationEnd = (giftNumber: number) => {
+    setOpeningGift(null);
+    setSelectedGift(giftNumber);
+    markGiftAsOpened(giftNumber);
+    setOpenedGifts(getOpenedGifts());
   };
 
   const handleCloseModal = () => {
     setSelectedGift(null);
-  };
-
-  const handleRipComplete = () => {
-    setIsRipping(false);
   };
 
   return (
@@ -100,6 +102,9 @@ const Index = () => {
                 isLocked={!isGiftUnlocked(gift.number, testMode)}
                 isOpened={openedGifts.includes(gift.number)}
                 onClick={() => handleGiftClick(gift.number)}
+                isOpening={openingGift === gift.number}
+                animationUrl={gift.animationUrl}
+                onAnimationEnd={() => handleAnimationEnd(gift.number)}
               />
             </motion.div>
           ))}
@@ -118,17 +123,9 @@ const Index = () => {
         </motion.div>
       </div>
 
-      {/* Paper Rip Overlay */}
-      <PaperRipOverlay
-        key={rippingGift}
-        isActive={isRipping}
-        onComplete={handleRipComplete}
-        giftNumber={rippingGift}
-      />
-
       {/* Gift Modal */}
       <GiftModal
-        isOpen={selectedGift !== null && !isRipping}
+        isOpen={selectedGift !== null && openingGift === null}
         onClose={handleCloseModal}
         giftNumber={selectedGift || 0}
         contentUrl={gifts.find(g => g.number === selectedGift)?.contentUrl}

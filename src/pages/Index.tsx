@@ -120,6 +120,7 @@ const Index = () => {
 
       {/* Paper Rip Overlay */}
       <PaperRipOverlay
+        key={rippingGift}
         isActive={isRipping}
         onComplete={handleRipComplete}
         giftNumber={rippingGift}

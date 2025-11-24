@@ -65,6 +65,11 @@ import day12Anim from "@/assets/animations/day-12.mp4";
 import day13Anim from "@/assets/animations/day-13.mp4";
 import day14Anim from "@/assets/animations/day-14.mp4";
 import day15Anim from "@/assets/animations/day-15.mp4";
+import day16Anim from "@/assets/animations/day-16.mp4";
+import day17Anim from "@/assets/animations/day-17.mp4";
+import day18Anim from "@/assets/animations/day-18.mp4";
+import day19Anim from "@/assets/animations/day-19.mp4";
+import day20Anim from "@/assets/animations/day-20.mp4";
 
 export interface Gift {
   number: number;
@@ -103,11 +108,12 @@ const giftColors: ('green' | 'red' | 'blue')[] = [
   'green', 'red', 'green', 'blue', 'red'       // Days 21-25
 ];
 
-// Opening animation videos for gifts 1-15
+// Opening animation videos for gifts 1-20
 const animationUrls = [
   day01Anim, day02Anim, day03Anim, day04Anim, day05Anim,
   day06Anim, day07Anim, day08Anim, day09Anim, day10Anim,
-  day11Anim, day12Anim, day13Anim, day14Anim, day15Anim
+  day11Anim, day12Anim, day13Anim, day14Anim, day15Anim,
+  day16Anim, day17Anim, day18Anim, day19Anim, day20Anim
 ];
 
 export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => {
@@ -117,7 +123,7 @@ export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => {
     image: giftImages[i],
     rippedImage: rippedImages[i],
     contentUrl: undefined,
-    animationUrl: number <= 15 ? animationUrls[i] : undefined,
+    animationUrl: number <= 20 ? animationUrls[i] : undefined,
     unlockDate: new Date(2025, 11, number),
     themeColor: giftColors[i],
   };

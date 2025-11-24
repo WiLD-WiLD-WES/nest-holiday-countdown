@@ -70,8 +70,8 @@ const Index = () => {
           <h1 className="text-5xl md:text-7xl font-bold text-gold mb-4 tracking-tight">
             <VariableProximity
               label="HOLIDAY COUNTDOWN 2025"
-              fromFontVariationSettings="'wght' 400, 'opsz' 5"
-              toFontVariationSettings="'wght' 900, 'opsz' 100"
+              fromFontVariationSettings="'wght' 300"
+              toFontVariationSettings="'wght' 700"
               containerRef={headerRef}
               radius={120}
               falloff="gaussian"

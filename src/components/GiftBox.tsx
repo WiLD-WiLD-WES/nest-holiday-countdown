@@ -60,13 +60,12 @@ export const GiftBox = ({ number, image, rippedImage, isLocked, isOpened, onClic
   };
 
   return (
-    <ClickSpark>
+    <ClickSpark onClick={handleClick}>
       <motion.div
         className="perspective-1000 relative"
         onMouseMove={clickable ? handleMouseMove : undefined}
         onMouseEnter={() => clickable && setIsHovered(true)}
         onMouseLeave={handleMouseLeave}
-        onClick={handleClick}
       >
         <motion.div
           className={`

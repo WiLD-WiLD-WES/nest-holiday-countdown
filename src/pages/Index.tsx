@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { GiftBox } from "@/components/GiftBox";
 import { GiftModal } from "@/components/GiftModal";
 import { gifts, isGiftUnlocked, getOpenedGifts, markGiftAsOpened, clearOpenedGifts } from "@/lib/giftData";
@@ -7,12 +7,14 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Package } from "lucide-react";
+import VariableProximity from "@/components/VariableProximity";
 
 const Index = () => {
   const [testMode, setTestMode] = useState(true);
   const [selectedGift, setSelectedGift] = useState<number | null>(null);
   const [openingGift, setOpeningGift] = useState<number | null>(null);
   const [openedGifts, setOpenedGifts] = useState<number[]>([]);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setOpenedGifts(getOpenedGifts());
@@ -59,13 +61,21 @@ const Index = () => {
       <div className="relative z-10 container mx-auto px-4 py-8 md:py-16">
         {/* Header */}
         <motion.div
+          ref={headerRef}
           className="text-center mb-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl md:text-7xl font-bold text-gold mb-4 tracking-tight">
-            HOLIDAY COUNTDOWN 2025
+            <VariableProximity
+              label="HOLIDAY COUNTDOWN 2025"
+              fromFontVariationSettings="'wght' 400, 'opsz' 5"
+              toFontVariationSettings="'wght' 900, 'opsz' 100"
+              containerRef={headerRef}
+              radius={120}
+              falloff="gaussian"
+            />
           </h1>
           <p className="text-xl md:text-2xl text-champagne font-light tracking-wide">
             Unwrap 25 Days of Nest Seeker Excellence

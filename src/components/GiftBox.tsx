@@ -1,7 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useState } from "react";
 import { Lock } from "lucide-react";
-import ClickSpark from "./ClickSpark";
 
 interface GiftBoxProps {
   number: number;
@@ -60,13 +59,13 @@ export const GiftBox = ({ number, image, rippedImage, isLocked, isOpened, onClic
   };
 
   return (
-    <ClickSpark onClick={handleClick}>
-      <motion.div
-        className="perspective-1000 relative"
-        onMouseMove={clickable ? handleMouseMove : undefined}
-        onMouseEnter={() => clickable && setIsHovered(true)}
-        onMouseLeave={handleMouseLeave}
-      >
+    <motion.div
+      className="perspective-1000 relative"
+      onMouseMove={clickable ? handleMouseMove : undefined}
+      onMouseEnter={() => clickable && setIsHovered(true)}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
+    >
         <motion.div
           className={`
             relative aspect-square rounded-lg overflow-hidden
@@ -128,6 +127,5 @@ export const GiftBox = ({ number, image, rippedImage, isLocked, isOpened, onClic
           />
         </motion.div>
       </motion.div>
-    </ClickSpark>
   );
 };

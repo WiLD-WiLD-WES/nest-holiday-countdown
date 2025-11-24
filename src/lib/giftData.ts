@@ -84,6 +84,8 @@ export interface Gift {
   animationUrl?: string;
   unlockDate: Date;
   themeColor: 'green' | 'red' | 'blue';
+  ctaUrl?: string;
+  ctaText?: string;
 }
 
 // Direct mapping of all 25 unique gift images
@@ -132,6 +134,8 @@ export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => {
     animationUrl: animationUrls[i],
     unlockDate: new Date(2025, 11, number),
     themeColor: giftColors[i],
+    ctaUrl: undefined,
+    ctaText: undefined,
   };
 });
 

@@ -128,7 +128,7 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>((p
       ref={ref}
       className={className}
       onClick={onClick}
-      style={{ display: 'inline', fontFamily: "'Playfair Display', serif", ...style }}
+      style={{ display: 'inline', fontFamily: "'Cormorant', serif", ...style }}
       {...restProps}
     >
       {words.map((word, wordIndex) => (

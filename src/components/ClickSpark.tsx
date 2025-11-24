@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback, forwardRef, useImperativeHandle } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 
 interface ClickSparkProps {
   sparkColor?: string;
@@ -11,11 +11,7 @@ interface ClickSparkProps {
   children: React.ReactNode;
 }
 
-export interface ClickSparkRef {
-  triggerSpark: (x: number, y: number) => void;
-}
-
-const ClickSpark = forwardRef<ClickSparkRef, ClickSparkProps>(({
+const ClickSpark = ({
   sparkColor = '#D4AF37',
   sparkSize = 12,
   sparkRadius = 20,
@@ -24,7 +20,7 @@ const ClickSpark = forwardRef<ClickSparkRef, ClickSparkProps>(({
   easing = 'ease-out',
   extraScale = 1.0,
   children
-}, ref) => {
+}: ClickSparkProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sparksRef = useRef<Array<{
     x: number;
@@ -134,7 +130,14 @@ const ClickSpark = forwardRef<ClickSparkRef, ClickSparkProps>(({
     };
   }, [sparkColor, sparkSize, sparkRadius, sparkCount, duration, easeFunc, extraScale]);
 
-  const triggerSpark = useCallback((x: number, y: number) => {
+  const handleClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
     const now = performance.now();
     const newSparks = Array.from({ length: sparkCount }, (_, i) => ({
       x,
@@ -146,10 +149,6 @@ const ClickSpark = forwardRef<ClickSparkRef, ClickSparkProps>(({
     sparksRef.current.push(...newSparks);
   }, [sparkCount]);
 
-  useImperativeHandle(ref, () => ({
-    triggerSpark
-  }), [triggerSpark]);
-
   return (
     <div
       style={{
@@ -157,6 +156,7 @@ const ClickSpark = forwardRef<ClickSparkRef, ClickSparkProps>(({
         width: '100%',
         height: '100%'
       }}
+      onClick={handleClick}
     >
       <canvas
         ref={canvasRef}
@@ -174,8 +174,6 @@ const ClickSpark = forwardRef<ClickSparkRef, ClickSparkProps>(({
       {children}
     </div>
   );
-});
-
-ClickSpark.displayName = 'ClickSpark';
+};
 
 export default ClickSpark;

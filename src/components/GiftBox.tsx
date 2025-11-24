@@ -1,7 +1,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Lock } from "lucide-react";
-import ClickSpark, { ClickSparkRef } from "./ClickSpark";
+import ClickSpark from "./ClickSpark";
 
 interface GiftBoxProps {
   number: number;
@@ -17,7 +17,6 @@ interface GiftBoxProps {
 
 export const GiftBox = ({ number, image, rippedImage, isLocked, isOpened, onClick, isOpening, animationUrl, onAnimationEnd }: GiftBoxProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  const sparkRef = useRef<ClickSparkRef>(null);
   
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -55,19 +54,13 @@ export const GiftBox = ({ number, image, rippedImage, isLocked, isOpened, onClic
     y.set(0);
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleClick = () => {
     if (!clickable) return;
-    
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    sparkRef.current?.triggerSpark(x, y);
     onClick();
   };
 
   return (
-    <ClickSpark ref={sparkRef}>
+    <ClickSpark>
       <motion.div
         className="perspective-1000 relative"
         onMouseMove={clickable ? handleMouseMove : undefined}

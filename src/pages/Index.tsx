@@ -77,8 +77,16 @@ const Index = () => {
               falloff="gaussian"
             />
           </h1>
-          <p className="text-xl md:text-2xl text-champagne font-light tracking-wide">
-            Unwrap 25 Days of Nest Seeker Excellence
+          <p className="text-xl md:text-2xl text-champagne tracking-wide">
+            <VariableProximity
+              label="UNWRAP 25 DAYS OF NEST SEEKER EXCELLENCE"
+              fromFontVariationSettings="'wght' 200"
+              toFontVariationSettings="'wght' 800"
+              containerRef={headerRef}
+              radius={100}
+              falloff="gaussian"
+              style={{ fontFamily: "'Raleway', sans-serif" }}
+            />
           </p>
         </motion.div>
 
@@ -148,7 +156,7 @@ const Index = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          <p className="text-sm text-muted-foreground mb-2">
+          <p className="text-sm text-muted-foreground mb-2" style={{ fontFamily: "'Raleway', sans-serif" }}>
             <a 
               href="https://nestseekersmastersdivision.com/" 
               target="_blank" 
@@ -158,10 +166,10 @@ const Index = () => {
               A Master's Division Digital Experience.
             </a>
           </p>
-          <p className="text-xs text-muted-foreground/70 mb-1">
+          <p className="text-xs text-muted-foreground/70 mb-1" style={{ fontFamily: "'Raleway', sans-serif" }}>
             COPYRIGHT © 2025. ALL RIGHTS RESERVED.
           </p>
-          <p className="text-xs text-muted-foreground/70">
+          <p className="text-xs text-muted-foreground/70" style={{ fontFamily: "'Raleway', sans-serif" }}>
             BOT MINING AND WEB SCRAPING PROHIBITED.
           </p>
         </motion.div>

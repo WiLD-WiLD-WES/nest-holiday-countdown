@@ -182,6 +182,8 @@ const Index = () => {
         giftNumber={selectedGift || 0}
         contentUrl={gifts.find(g => g.number === selectedGift)?.contentUrl}
         themeColor={gifts.find(g => g.number === selectedGift)?.themeColor || 'green'}
+        ctaUrl={gifts.find(g => g.number === selectedGift)?.ctaUrl}
+        ctaText={gifts.find(g => g.number === selectedGift)?.ctaText}
       />
     </div>
   );

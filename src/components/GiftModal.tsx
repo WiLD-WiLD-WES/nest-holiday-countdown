@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, ExternalLink } from "lucide-react";
 import { useEffect } from "react";
+import ClickSpark from "./ClickSpark";
+import { Button } from "./ui/button";
 
 interface GiftModalProps {
   isOpen: boolean;
@@ -8,9 +10,11 @@ interface GiftModalProps {
   giftNumber: number;
   contentUrl?: string;
   themeColor: 'green' | 'red' | 'blue';
+  ctaUrl?: string;
+  ctaText?: string;
 }
 
-export const GiftModal = ({ isOpen, onClose, giftNumber, contentUrl, themeColor }: GiftModalProps) => {
+export const GiftModal = ({ isOpen, onClose, giftNumber, contentUrl, themeColor, ctaUrl, ctaText }: GiftModalProps) => {
   // Define luxury background colors for each theme
   const colorMap = {
     green: 'hsl(162, 45%, 22%)',   // Deep emerald
@@ -55,13 +59,23 @@ export const GiftModal = ({ isOpen, onClose, giftNumber, contentUrl, themeColor 
               className="relative w-full max-w-4xl max-h-[90vh] rounded-2xl overflow-hidden shadow-2xl"
               style={{ backgroundColor: bgColor }}
             >
-              {/* Close button */}
-              <button
-                onClick={onClose}
-                className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors"
-              >
-                <X className="w-5 h-5 text-foreground" />
-              </button>
+              {/* Close button with sparkle effect */}
+              <div className="absolute top-4 right-4 z-10">
+                <ClickSpark
+                  sparkColor='#e5c781'
+                  sparkSize={30}
+                  sparkRadius={45}
+                  sparkCount={9}
+                  duration={800}
+                  onClick={onClose}
+                >
+                  <button
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors"
+                  >
+                    <X className="w-5 h-5 text-foreground" />
+                  </button>
+                </ClickSpark>
+              </div>
 
               {/* Content */}
               <div className="p-8 md:p-12">
@@ -107,6 +121,35 @@ export const GiftModal = ({ isOpen, onClose, giftNumber, contentUrl, themeColor 
                       </div>
                     )}
                   </div>
+
+                  {/* CTA Button with sparkle effect */}
+                  {ctaUrl && ctaText && (
+                    <div className="mt-6 flex justify-center">
+                      <ClickSpark
+                        sparkColor='#e5c781'
+                        sparkSize={30}
+                        sparkRadius={45}
+                        sparkCount={9}
+                        duration={800}
+                      >
+                        <Button
+                          asChild
+                          size="lg"
+                          className="bg-gold hover:bg-gold/90 text-background font-semibold"
+                        >
+                          <a 
+                            href={ctaUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2"
+                          >
+                            {ctaText}
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        </Button>
+                      </ClickSpark>
+                    </div>
+                  )}
                 </motion.div>
               </div>
             </div>

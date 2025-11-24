@@ -8,6 +8,7 @@ interface ClickSparkProps {
   duration?: number;
   easing?: 'linear' | 'ease-in' | 'ease-out' | 'ease-in-out';
   extraScale?: number;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   children: React.ReactNode;
 }
 
@@ -19,6 +20,7 @@ const ClickSpark = ({
   duration = 600,
   easing = 'ease-out',
   extraScale = 1.0,
+  onClick,
   children
 }: ClickSparkProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -147,7 +149,10 @@ const ClickSpark = ({
     }));
 
     sparksRef.current.push(...newSparks);
-  }, [sparkCount]);
+    
+    // Call the onClick handler if provided
+    onClick?.(e);
+  }, [sparkCount, onClick]);
 
   return (
     <div

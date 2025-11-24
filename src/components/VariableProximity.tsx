@@ -1,4 +1,4 @@
-import { forwardRef, useMemo, useRef, RefObject } from 'react';
+import { forwardRef, useMemo, useRef, RefObject, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useAnimationFrame } from '@/hooks/useAnimationFrame';
 import { useMousePositionRef } from '@/hooks/useMousePositionRef';
@@ -33,6 +33,13 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>((p
   const interpolatedSettingsRef = useRef<string[]>([]);
   const mousePositionRef = useMousePositionRef(containerRef);
   const lastPositionRef = useRef({ x: null as number | null, y: null as number | null });
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+  useEffect(() => {
+    document.fonts.ready.then(() => {
+      setFontLoaded(true);
+    });
+  }, []);
 
   const parsedSettings = useMemo(() => {
     const parseSettings = (settingsStr: string) =>
@@ -73,7 +80,7 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>((p
   };
 
   useAnimationFrame(() => {
-    if (!containerRef?.current) return;
+    if (!fontLoaded || !containerRef?.current) return;
     const containerRect = containerRef.current.getBoundingClientRect();
     const { x, y } = mousePositionRef.current;
     if (lastPositionRef.current.x === x && lastPositionRef.current.y === y) {
@@ -136,7 +143,7 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>((p
                 }}
                 style={{
                   display: 'inline-block',
-                  fontVariationSettings: interpolatedSettingsRef.current[currentLetterIndex]
+                  fontVariationSettings: interpolatedSettingsRef.current[currentLetterIndex] || fromFontVariationSettings
                 }}
                 aria-hidden="true"
               >

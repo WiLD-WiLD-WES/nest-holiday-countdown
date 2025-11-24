@@ -65,10 +65,10 @@ const Index = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl md:text-7xl font-bold text-gold mb-4 tracking-tight">
-            Holiday Calendar 2025
+            HOLIDAY COUNTDOWN 2025
           </h1>
           <p className="text-xl md:text-2xl text-champagne font-light tracking-wide">
-            Unwrap 25 Days of Exclusive Surprises
+            Unwrap 25 Days of Nest Seeker Excellence
           </p>
         </motion.div>
 
@@ -138,8 +138,14 @@ const Index = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          <p className="text-sm text-muted-foreground">
-            A Nest Seekers Exclusive Experience
+          <p className="text-sm text-muted-foreground mb-2">
+            A Master's Division Digital Experience.
+          </p>
+          <p className="text-xs text-muted-foreground/70 mb-1">
+            COPYRIGHT © 2025. ALL RIGHTS RESERVED.
+          </p>
+          <p className="text-xs text-muted-foreground/70">
+            BOT MINING AND WEB SCRAPING PROHIBITED.
           </p>
         </motion.div>
       </div>

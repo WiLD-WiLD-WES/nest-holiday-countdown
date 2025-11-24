@@ -139,7 +139,14 @@ const Index = () => {
           transition={{ delay: 1 }}
         >
           <p className="text-sm text-muted-foreground mb-2">
-            A Master's Division Digital Experience.
+            <a 
+              href="https://nestseekersmastersdivision.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-gold transition-colors underline underline-offset-4"
+            >
+              A Master's Division Digital Experience.
+            </a>
           </p>
           <p className="text-xs text-muted-foreground/70 mb-1">
             COPYRIGHT © 2025. ALL RIGHTS RESERVED.

@@ -135,7 +135,7 @@ export const GiftModal = ({
                     transition={{ delay: 0.3 }}
                   >
                     {/* Agent Name with VariableProximity effect */}
-                    <div className="mb-6 text-center md:text-left">
+                    <div className="mb-6 text-center">
                       <VariableProximity
                         label={agentName || `Day ${giftNumber}`}
                         fromFontVariationSettings="'wght' 300"
@@ -144,7 +144,6 @@ export const GiftModal = ({
                         radius={120}
                         falloff="gaussian"
                         className="text-3xl md:text-4xl lg:text-5xl text-gold uppercase tracking-wider"
-                        style={{ fontFamily: "'Playfair Display', serif" }}
                       />
                     </div>
 
@@ -174,6 +173,7 @@ export const GiftModal = ({
                                   target="_blank" 
                                   rel="noopener noreferrer"
                                   className="flex items-center gap-2"
+                                  style={{ fontFamily: "'Raleway', sans-serif" }}
                                 >
                                   {ctaText}
                                   <ExternalLink className="w-4 h-4" />

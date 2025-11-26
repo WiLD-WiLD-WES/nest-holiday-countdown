@@ -129,7 +129,7 @@ export const GiftModal = ({
 
                   {/* Right Column: Agent Name + Quote and CTA (top on mobile) */}
                   <motion.div 
-                    className="order-1 md:order-2 flex flex-col justify-center"
+                    className="order-1 md:order-2 flex flex-col justify-center items-center"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 }}
@@ -148,7 +148,7 @@ export const GiftModal = ({
                     </div>
 
                     {quote ? (
-                      <div className="bg-black/20 border-2 border-gold/40 rounded-xl p-6 md:p-8 shadow-xl">
+                      <div className="bg-black/20 border-2 border-gold/40 rounded-xl p-6 md:p-8 shadow-xl w-full max-w-xl">
                         <p className="text-gold text-base md:text-lg leading-relaxed mb-6 text-center" style={{ fontFamily: "'Raleway', sans-serif" }}>
                           "{quote}"
                         </p>

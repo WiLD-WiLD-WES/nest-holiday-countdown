@@ -78,6 +78,10 @@ import day25Anim from "@/assets/animations/day-25.mp4";
 
 // Agent hero videos for lightbox
 import angelaPageVideo from "@/assets/agent-videos/angela-page.mp4";
+import enricoMeleoVideo from "@/assets/agent-videos/enrico-meleo.mp4";
+import robertaFeldmanVideo from "@/assets/agent-videos/roberta-feldman.mp4";
+import sachikoHondaVideo from "@/assets/agent-videos/sachiko-honda.mp4";
+import brettComptonVideo from "@/assets/agent-videos/brett-compton.mp4";
 
 export interface Gift {
   number: number;
@@ -144,25 +148,29 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     agentName: "ENRICO MELEO",
     quote: "My favorite moment of 2025 was securing a first home for two navy veterans using a VA Loan. Was a long and tough journey but we got them into their ideal dream home. Very happy for them!",
     ctaUrl: "https://nestseekersmastersdivision.com/agent/enrico-meleo",
-    ctaText: "MORE ABOUT ENRICO"
+    ctaText: "MORE ABOUT ENRICO",
+    agentVideo: enricoMeleoVideo
   },
   3: {
     agentName: "ROBERTA FELDMAN",
     quote: "In 2025, I helped several Upper East Side and Carnegie Hill sellers navigate shifting rates and mixed buyer sentiment, and still achieve strong outcomes on their sales. Guiding clients through that uncertainty and delivering real financial wins was the highlight of my year.",
     ctaUrl: "https://nestseekersmastersdivision.com/agent/roberta-feldman",
-    ctaText: "MORE ABOUT ROBERTA"
+    ctaText: "MORE ABOUT ROBERTA",
+    agentVideo: robertaFeldmanVideo
   },
   4: {
     agentName: "SACHIKO HONDA",
     quote: "Carrying the confidence of a major win, I entered this year ready to elevate my follow-up, momentum, and meaningful client relationships. I grew my rental portfolio, met amazing new clients, and helped investor buyers with the experience I've built over the years.",
     ctaUrl: "https://nestseekersmastersdivision.com/agent/sachiko-honda",
-    ctaText: "MORE ABOUT SACHIKO"
+    ctaText: "MORE ABOUT SACHIKO",
+    agentVideo: sachikoHondaVideo
   },
   5: {
     agentName: "BRETT COMPTON",
     quote: "A banner moment for me, in 2025, was stepping deeper into my role as COO, of The Masters Division, and building real structure around our operations, training, and compliance so our agents could focus on winning business. I am proud of how much more empowered, informed, and supported our agents are now compared to where we started.",
     ctaUrl: "https://nestseekersmastersdivision.com/agent/brett-d-n-compton",
-    ctaText: "MORE ABOUT BRETT"
+    ctaText: "MORE ABOUT BRETT",
+    agentVideo: brettComptonVideo
   }
 };
 

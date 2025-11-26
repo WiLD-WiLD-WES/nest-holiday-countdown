@@ -131,32 +131,32 @@ const animationUrls = [
 const agentData: Record<number, { agentName: string; quote: string; ctaUrl: string; ctaText: string }> = {
   1: {
     agentName: "ANGELA PAGE",
-    quote: "My biggest win this year was watching one client go from a $200K home to a $500K custom build in just two years. Seeing her confidence grow as she built equity was incredible.",
-    ctaUrl: "https://www.compass.com/agents/angela-page/",
+    quote: "My biggest win this year was watching one client relationship turn into five separate transactions. It was a powerful reminder that this business always rewards relationships first. When you lead with trust and service, the deals follow. Success is built one genuine connection at a time.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/angela-page",
     ctaText: "MORE ABOUT ANGELA"
   },
   2: {
     agentName: "ENRICO MELEO",
-    quote: "My favorite moment of 2025 was closing a luxury property where the buyers told me, 'You made this process feel effortless.' That's what I strive for every time—stress-free excellence.",
-    ctaUrl: "https://www.compass.com/agents/enrico-meleo/",
+    quote: "My favorite moment of 2025 was securing a first home for two navy veterans using a VA Loan. Was a long and tough journey but we got them into their ideal dream home. Very happy for them!",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/enrico-meleo",
     ctaText: "MORE ABOUT ENRICO"
   },
   3: {
     agentName: "ROBERTA FELDMAN",
-    quote: "In 2025, I helped several families find their forever homes after years of searching. One client sent me a photo of their first holiday in the new house with a note: 'This is all because of you.' Moments like that remind me why I love what I do.",
-    ctaUrl: "https://www.compass.com/agents/roberta-feldman/",
+    quote: "In 2025, I helped several Upper East Side and Carnegie Hill sellers navigate shifting rates and mixed buyer sentiment, and still achieve strong outcomes on their sales. Guiding clients through that uncertainty and delivering real financial wins was the highlight of my year.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/roberta-feldman",
     ctaText: "MORE ABOUT ROBERTA"
   },
   4: {
     agentName: "SACHIKO HONDA",
-    quote: "Carrying the confidence I earned from 2024 into the new year. My clients trust me because I listen, prepare, and deliver. Here's to more milestones ahead.",
-    ctaUrl: "https://www.compass.com/agents/sachiko-honda/",
+    quote: "Carrying the confidence of a major win, I entered this year ready to elevate my follow-up, momentum, and meaningful client relationships. I grew my rental portfolio, met amazing new clients, and helped investor buyers with the experience I've built over the years.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/sachiko-honda",
     ctaText: "MORE ABOUT SACHIKO"
   },
   5: {
     agentName: "BRETT COMPTON",
-    quote: "A banner moment for me was negotiating a deal that saved my buyers $50K on their dream home. They thought it was out of reach—I showed them it wasn't.",
-    ctaUrl: "https://www.compass.com/agents/brett-compton/",
+    quote: "A banner moment for me, in 2025, was stepping deeper into my role as COO, of The Masters Division, and building real structure around our operations, training, and compliance so our agents could focus on winning business. I am proud of how much more empowered, informed, and supported our agents are now compared to where we started.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/brett-d-n-compton",
     ctaText: "MORE ABOUT BRETT"
   }
 };

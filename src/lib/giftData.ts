@@ -76,6 +76,9 @@ import day23Anim from "@/assets/animations/day-23.mp4";
 import day24Anim from "@/assets/animations/day-24.mp4";
 import day25Anim from "@/assets/animations/day-25.mp4";
 
+// Agent hero videos for lightbox
+import angelaPageVideo from "@/assets/agent-videos/angela-page.mp4";
+
 export interface Gift {
   number: number;
   image: string;
@@ -86,6 +89,7 @@ export interface Gift {
   themeColor: 'green' | 'red' | 'blue';
   agentName?: string;
   agentPhoto?: string;
+  agentVideo?: string;
   quote?: string;
   ctaUrl?: string;
   ctaText?: string;
@@ -128,12 +132,13 @@ const animationUrls = [
 ];
 
 // Agent data for days 1-5
-const agentData: Record<number, { agentName: string; quote: string; ctaUrl: string; ctaText: string }> = {
+const agentData: Record<number, { agentName: string; quote: string; ctaUrl: string; ctaText: string; agentVideo?: string }> = {
   1: {
     agentName: "ANGELA PAGE",
     quote: "My biggest win this year was watching one client relationship turn into five separate transactions. It was a powerful reminder that this business always rewards relationships first. When you lead with trust and service, the deals follow. Success is built one genuine connection at a time.",
     ctaUrl: "https://nestseekersmastersdivision.com/agent/angela-page",
-    ctaText: "MORE ABOUT ANGELA"
+    ctaText: "MORE ABOUT ANGELA",
+    agentVideo: angelaPageVideo
   },
   2: {
     agentName: "ENRICO MELEO",
@@ -175,6 +180,7 @@ export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => {
     themeColor: giftColors[i],
     agentName: agent?.agentName || "Coming Soon",
     agentPhoto: undefined,
+    agentVideo: agent?.agentVideo,
     quote: agent?.quote,
     ctaUrl: agent?.ctaUrl,
     ctaText: agent?.ctaText,

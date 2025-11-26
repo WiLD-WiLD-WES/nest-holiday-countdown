@@ -1,8 +1,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import ClickSpark from "./ClickSpark";
 import { Button } from "./ui/button";
+import VariableProximity from "./VariableProximity";
 
 interface GiftModalProps {
   isOpen: boolean;
@@ -29,6 +30,8 @@ export const GiftModal = ({
   ctaUrl, 
   ctaText 
 }: GiftModalProps) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+  
   // Define luxury background colors for each theme
   const colorMap = {
     green: 'hsl(162, 45%, 22%)',   // Deep emerald
@@ -71,6 +74,7 @@ export const GiftModal = ({
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
           >
             <div 
+              ref={modalRef}
               className="relative w-full max-w-6xl max-h-[90vh] rounded-2xl overflow-hidden shadow-2xl"
               style={{ backgroundColor: bgColor }}
             >
@@ -94,34 +98,15 @@ export const GiftModal = ({
 
               {/* Content - Mobile: Stacked | Desktop: Two-column */}
               <div className="p-6 md:p-10">
-                {/* Agent Name - Always at top on mobile, inside left column on desktop */}
-                <motion.h2 
-                  className="text-3xl md:text-4xl font-bold text-gold uppercase tracking-wider mb-6 md:hidden text-center"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                >
-                  {agentName || `Day ${giftNumber}`}
-                </motion.h2>
-
                 {/* Layout Grid */}
                 <div className="flex flex-col md:grid md:grid-cols-[400px_1fr] gap-6 md:gap-8">
-                  {/* Left Column: Video (bottom on mobile) */}
+                  {/* Left Column: Video only (bottom on mobile) */}
                   <motion.div 
                     className="order-3 md:order-1"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 }}
                   >
-                    {/* Desktop: Agent Name above video */}
-                    <h2 
-                      className="hidden md:block text-3xl lg:text-4xl font-bold text-gold uppercase tracking-wider mb-4"
-                      style={{ fontFamily: "'Playfair Display', serif" }}
-                    >
-                      {agentName || `Day ${giftNumber}`}
-                    </h2>
-                    
                     {agentVideo ? (
                       <div className="w-full aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
                         <video 
@@ -142,13 +127,27 @@ export const GiftModal = ({
                     )}
                   </motion.div>
 
-                  {/* Right Column: Quote and CTA (middle on mobile) */}
+                  {/* Right Column: Agent Name + Quote and CTA (top on mobile) */}
                   <motion.div 
-                    className="order-2 flex flex-col justify-center"
+                    className="order-1 md:order-2 flex flex-col justify-center"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 }}
                   >
+                    {/* Agent Name with VariableProximity effect */}
+                    <div className="mb-6 text-center md:text-left">
+                      <VariableProximity
+                        label={agentName || `Day ${giftNumber}`}
+                        fromFontVariationSettings="'wght' 300"
+                        toFontVariationSettings="'wght' 700"
+                        containerRef={modalRef}
+                        radius={120}
+                        falloff="gaussian"
+                        className="text-3xl md:text-4xl lg:text-5xl text-gold uppercase tracking-wider"
+                        style={{ fontFamily: "'Playfair Display', serif" }}
+                      />
+                    </div>
+
                     {quote ? (
                       <div className="bg-black/20 border-2 border-gold/40 rounded-xl p-6 md:p-8 shadow-xl">
                         <p className="text-gold text-base md:text-lg leading-relaxed mb-6 text-center" style={{ fontFamily: "'Raleway', sans-serif" }}>

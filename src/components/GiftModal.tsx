@@ -10,11 +10,14 @@ interface GiftModalProps {
   giftNumber: number;
   contentUrl?: string;
   themeColor: 'green' | 'red' | 'blue';
+  agentName?: string;
+  agentPhoto?: string;
+  quote?: string;
   ctaUrl?: string;
   ctaText?: string;
 }
 
-export const GiftModal = ({ isOpen, onClose, giftNumber, contentUrl, themeColor, ctaUrl, ctaText }: GiftModalProps) => {
+export const GiftModal = ({ isOpen, onClose, giftNumber, contentUrl, themeColor, agentName, agentPhoto, quote, ctaUrl, ctaText }: GiftModalProps) => {
   // Define luxury background colors for each theme
   const colorMap = {
     green: 'hsl(162, 45%, 22%)',   // Deep emerald
@@ -78,78 +81,98 @@ export const GiftModal = ({ isOpen, onClose, giftNumber, contentUrl, themeColor,
               </div>
 
               {/* Content */}
-              <div className="p-8 md:p-12">
+              <div className="p-6 md:p-10">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
+                  className="space-y-6"
                 >
-                  <h2 className="text-4xl md:text-5xl font-bold text-gold mb-6">
-                    Day {giftNumber}
+                  {/* Agent Name Header */}
+                  <h2 className="text-3xl md:text-4xl font-bold text-gold uppercase tracking-wider" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    {agentName || `Day ${giftNumber}`}
                   </h2>
                   
-                  <div className="bg-black/20 rounded-xl p-8 min-h-[400px] flex items-center justify-center">
-                    {contentUrl ? (
-                      contentUrl.match(/\.(jpg|jpeg|png|gif|webp)$/i) ? (
-                        <img 
-                          src={contentUrl} 
-                          alt={`Day ${giftNumber} content`}
-                          className="max-w-full h-auto rounded-lg"
-                        />
-                      ) : contentUrl.match(/\.(mp4|webm|ogg)$/i) ? (
-                        <video 
-                          src={contentUrl}
-                          controls
-                          autoPlay
-                          className="max-w-full h-auto rounded-lg"
-                        />
+                  {/* Two Column Layout */}
+                  <div className="grid md:grid-cols-[300px_1fr] gap-6 md:gap-8">
+                    {/* Left Column: Agent Photo */}
+                    <div className="flex justify-center md:justify-start">
+                      {agentPhoto ? (
+                        <div className="w-full max-w-[300px] aspect-[3/4] rounded-lg overflow-hidden shadow-2xl">
+                          <img 
+                            src={agentPhoto} 
+                            alt={agentName}
+                            className="w-full h-full object-cover grayscale"
+                            style={{
+                              filter: `grayscale(100%) sepia(100%) hue-rotate(${
+                                themeColor === 'green' ? '80deg' : 
+                                themeColor === 'red' ? '350deg' : 
+                                '200deg'
+                              }) saturate(300%) brightness(0.7)`
+                            }}
+                          />
+                        </div>
                       ) : (
-                        <iframe
-                          src={contentUrl}
-                          className="w-full h-[500px] rounded-lg"
-                          title={`Day ${giftNumber} content`}
-                        />
-                      )
-                    ) : (
-                      <div className="text-center">
-                        <p className="text-xl text-muted-foreground mb-4">
-                          Exclusive content for Day {giftNumber}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          Content will be added here
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* CTA Button with sparkle effect */}
-                  {ctaUrl && ctaText && (
-                    <div className="mt-6 flex justify-center">
-                      <ClickSpark
-                        sparkColor='#e5c781'
-                        sparkSize={30}
-                        sparkRadius={45}
-                        sparkCount={9}
-                        duration={800}
-                      >
-                        <Button
-                          asChild
-                          size="lg"
-                          className="bg-gold hover:bg-gold/90 text-background font-semibold"
-                        >
-                          <a 
-                            href={ctaUrl} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2"
-                          >
-                            {ctaText}
-                            <ExternalLink className="w-4 h-4" />
-                          </a>
-                        </Button>
-                      </ClickSpark>
+                        <div className="w-full max-w-[300px] aspect-[3/4] rounded-lg bg-white/95 shadow-2xl flex items-center justify-center">
+                          {agentName && agentName !== "Coming Soon" ? (
+                            <span className="text-6xl font-bold text-muted-foreground/30" style={{ fontFamily: "'Playfair Display', serif" }}>
+                              {agentName.split(' ').map(n => n[0]).join('')}
+                            </span>
+                          ) : (
+                            <span className="text-2xl font-bold text-muted-foreground/30" style={{ fontFamily: "'Playfair Display', serif" }}>
+                              Coming Soon
+                            </span>
+                          )}
+                        </div>
+                      )}
                     </div>
-                  )}
+
+                    {/* Right Column: Quote and CTA */}
+                    <div className="flex flex-col justify-center">
+                      {quote ? (
+                        <div className="bg-black/20 border-2 border-gold/40 rounded-xl p-6 md:p-8 shadow-xl">
+                          <p className="text-gold text-base md:text-lg leading-relaxed mb-6 text-center" style={{ fontFamily: "'Raleway', sans-serif" }}>
+                            "{quote}"
+                          </p>
+                          
+                          {ctaUrl && ctaText && (
+                            <div className="flex justify-center">
+                              <ClickSpark
+                                sparkColor='#e5c781'
+                                sparkSize={30}
+                                sparkRadius={45}
+                                sparkCount={9}
+                                duration={800}
+                              >
+                                <Button
+                                  asChild
+                                  size="lg"
+                                  variant="outline"
+                                  className="border-2 border-gold bg-transparent text-gold hover:bg-gold hover:text-background font-semibold transition-all"
+                                >
+                                  <a 
+                                    href={ctaUrl} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2"
+                                  >
+                                    {ctaText}
+                                    <ExternalLink className="w-4 h-4" />
+                                  </a>
+                                </Button>
+                              </ClickSpark>
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        <div className="bg-black/20 border-2 border-gold/40 rounded-xl p-8 text-center">
+                          <p className="text-gold/60 text-lg" style={{ fontFamily: "'Raleway', sans-serif" }}>
+                            Content coming soon for Day {giftNumber}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </motion.div>
               </div>
             </div>

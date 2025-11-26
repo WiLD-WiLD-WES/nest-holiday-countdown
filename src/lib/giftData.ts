@@ -84,6 +84,9 @@ export interface Gift {
   animationUrl?: string;
   unlockDate: Date;
   themeColor: 'green' | 'red' | 'blue';
+  agentName?: string;
+  agentPhoto?: string;
+  quote?: string;
   ctaUrl?: string;
   ctaText?: string;
 }
@@ -124,8 +127,44 @@ const animationUrls = [
   day21Anim, day22Anim, day23Anim, day24Anim, day25Anim
 ];
 
+// Agent data for days 1-5
+const agentData: Record<number, { agentName: string; quote: string; ctaUrl: string; ctaText: string }> = {
+  1: {
+    agentName: "ANGELA PAGE",
+    quote: "My biggest win this year was watching one client go from a $200K home to a $500K custom build in just two years. Seeing her confidence grow as she built equity was incredible.",
+    ctaUrl: "https://www.compass.com/agents/angela-page/",
+    ctaText: "MORE ABOUT ANGELA"
+  },
+  2: {
+    agentName: "ENRICO MELEO",
+    quote: "My favorite moment of 2025 was closing a luxury property where the buyers told me, 'You made this process feel effortless.' That's what I strive for every time—stress-free excellence.",
+    ctaUrl: "https://www.compass.com/agents/enrico-meleo/",
+    ctaText: "MORE ABOUT ENRICO"
+  },
+  3: {
+    agentName: "ROBERTA FELDMAN",
+    quote: "In 2025, I helped several families find their forever homes after years of searching. One client sent me a photo of their first holiday in the new house with a note: 'This is all because of you.' Moments like that remind me why I love what I do.",
+    ctaUrl: "https://www.compass.com/agents/roberta-feldman/",
+    ctaText: "MORE ABOUT ROBERTA"
+  },
+  4: {
+    agentName: "SACHIKO HONDA",
+    quote: "Carrying the confidence I earned from 2024 into the new year. My clients trust me because I listen, prepare, and deliver. Here's to more milestones ahead.",
+    ctaUrl: "https://www.compass.com/agents/sachiko-honda/",
+    ctaText: "MORE ABOUT SACHIKO"
+  },
+  5: {
+    agentName: "BRETT COMPTON",
+    quote: "A banner moment for me was negotiating a deal that saved my buyers $50K on their dream home. They thought it was out of reach—I showed them it wasn't.",
+    ctaUrl: "https://www.compass.com/agents/brett-compton/",
+    ctaText: "MORE ABOUT BRETT"
+  }
+};
+
 export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => {
   const number = i + 1;
+  const agent = agentData[number];
+  
   return {
     number,
     image: giftImages[i],
@@ -134,8 +173,11 @@ export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => {
     animationUrl: animationUrls[i],
     unlockDate: new Date(2025, 11, number),
     themeColor: giftColors[i],
-    ctaUrl: undefined,
-    ctaText: undefined,
+    agentName: agent?.agentName || "Coming Soon",
+    agentPhoto: undefined,
+    quote: agent?.quote,
+    ctaUrl: agent?.ctaUrl,
+    ctaText: agent?.ctaText,
   };
 });
 

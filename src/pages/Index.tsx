@@ -182,6 +182,9 @@ const Index = () => {
         giftNumber={selectedGift || 0}
         contentUrl={gifts.find(g => g.number === selectedGift)?.contentUrl}
         themeColor={gifts.find(g => g.number === selectedGift)?.themeColor || 'green'}
+        agentName={gifts.find(g => g.number === selectedGift)?.agentName}
+        agentPhoto={gifts.find(g => g.number === selectedGift)?.agentPhoto}
+        quote={gifts.find(g => g.number === selectedGift)?.quote}
         ctaUrl={gifts.find(g => g.number === selectedGift)?.ctaUrl}
         ctaText={gifts.find(g => g.number === selectedGift)?.ctaText}
       />

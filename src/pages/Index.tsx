@@ -69,7 +69,7 @@ const Index = () => {
         >
           <h1 className="text-5xl md:text-7xl font-bold text-gold mb-4 tracking-tight">
             <VariableProximity
-              label="HOLIDAY COUNTDOWN 2025"
+              label="THE MASTERS DIVISION HOLIDAY SHOWCASE"
               fromFontVariationSettings="'wght' 300"
               toFontVariationSettings="'wght' 700"
               containerRef={headerRef}
@@ -79,7 +79,7 @@ const Index = () => {
           </h1>
           <p className="text-xl md:text-2xl text-champagne tracking-wide">
             <VariableProximity
-              label="UNWRAP 25 DAYS OF NEST SEEKER EXCELLENCE"
+              label="UNWRAP THE MASTERY BEHIND OUR 2025 SUCCESSES"
               fromFontVariationSettings="'wght' 200"
               toFontVariationSettings="'wght' 800"
               containerRef={headerRef}

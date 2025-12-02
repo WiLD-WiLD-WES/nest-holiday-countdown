@@ -151,7 +151,7 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
   },
   2: {
     agentName: "ENRICO MELEO",
-    quote: "My favorite moment of 2025 was securing a first home for two navy veterans using a VA Loan. Was a long and tough journey but we got them into their ideal dream home. Very happy for them!",
+    quote: "My favorite moment of 2025 was securing a first home for two Navy veterans using a VA Loan. Was a long and tough journey but we got them into their ideal dream home. Very happy for them!",
     ctaUrl: "https://nestseekersmastersdivision.com/agent/enrico-meleo",
     ctaText: "MORE ABOUT ENRICO",
     agentVideo: enricoMeleoVideo
@@ -186,7 +186,7 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
   },
   7: {
     agentName: "JOE GUIDI",
-    quote: "A personal banner moment this year, was the response I received from helping family sell their home in Danvers. This couple was under a lot of strain to sell since they needed the proceeds to purchase a new home in Texas. They expressed their appreciation at how I continually communicated with them and how I was able to help them while always maintaining a positive attitude despite a few setbacks along the way; including a broken sliding glass door that a neighbor accidentally smashed while removing an item from the house. Grateful that my efforts were appreciated and that the couple were able to move on to the next phase of their lives.",
+    quote: "A personal banner moment this year, was the response I received from helping a family sell their home in Danvers. This couple was under a lot of strain to sell since they needed the proceeds to purchase a new home in Texas. They expressed their appreciation at how I continually communicated with them and how I was able to help them while always maintaining a positive attitude despite a few setbacks along the way; including a broken sliding glass door that a neighbor accidentally smashed while removing an item from the house. Grateful that my efforts were appreciated and that the couple were able to move on to the next phase of their lives.",
     ctaUrl: "https://www.nestseekers.com/agent/joe-guidi/",
     ctaText: "MORE ABOUT JOE",
     agentVideo: joeGuidiVideo

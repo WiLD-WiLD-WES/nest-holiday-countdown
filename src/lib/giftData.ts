@@ -86,6 +86,7 @@ import annaelKamarVideo from "@/assets/agent-videos/annael-kamar.mp4";
 import joeGuidiVideo from "@/assets/agent-videos/joe-guidi.mp4";
 import angelinaSpiropoulos from "@/assets/agent-videos/angelina-spiropoulos.mp4";
 import antonioSigilloVideo from "@/assets/agent-videos/antonio-sigillo.mp4";
+import skyeHuffVideo from "@/assets/agent-videos/skye-huff.mp4";
 
 export interface Gift {
   number: number;
@@ -203,6 +204,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/agent/antonio-sigillo",
     ctaText: "MORE ABOUT ANTONIO",
     agentVideo: antonioSigilloVideo
+  },
+  10: {
+    agentName: "SKYE HUFF",
+    quote: "Every challenge this year strengthened my confidence and elevated my role in this industry ... I am grateful to learn from the people around and ahead of me every day, and to continue growing as both an agent and a person. I am excited to see what's to come in 2026!",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/sky-huff",
+    ctaText: "MORE ABOUT SKYE",
+    agentVideo: skyeHuffVideo
   }
 };
 

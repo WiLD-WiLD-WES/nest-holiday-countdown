@@ -82,6 +82,7 @@ import enricoMeleoVideo from "@/assets/agent-videos/enrico-meleo.mp4";
 import robertaFeldmanVideo from "@/assets/agent-videos/roberta-feldman.mp4";
 import sachikoHondaVideo from "@/assets/agent-videos/sachiko-honda.mp4";
 import brettComptonVideo from "@/assets/agent-videos/brett-compton.mp4";
+import annaelKamarVideo from "@/assets/agent-videos/annael-kamar.mp4";
 
 export interface Gift {
   number: number;
@@ -171,6 +172,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/agent/brett-d-n-compton",
     ctaText: "MORE ABOUT BRETT",
     agentVideo: brettComptonVideo
+  },
+  6: {
+    agentName: "ANNAEL KAMAR",
+    quote: "My proudest win of 2025 was transforming three long-stalled new development projects that had been on the market for years with other brokerage teams into fully sold success stories ... Through strategic marketing, sharp repositioning, creative solutions, and relentless hustle, we outperformed the market and delivered exceptional results for every client and investor.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/annael-kamar",
+    ctaText: "MORE ABOUT ANNAEL",
+    agentVideo: annaelKamarVideo
   }
 };
 

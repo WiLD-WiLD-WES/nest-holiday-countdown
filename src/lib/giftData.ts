@@ -84,6 +84,7 @@ import sachikoHondaVideo from "@/assets/agent-videos/sachiko-honda.mp4";
 import brettComptonVideo from "@/assets/agent-videos/brett-compton.mp4";
 import annaelKamarVideo from "@/assets/agent-videos/annael-kamar.mp4";
 import joeGuidiVideo from "@/assets/agent-videos/joe-guidi.mp4";
+import angelinaSpiropoulos from "@/assets/agent-videos/angelina-spiropoulos.mp4";
 
 export interface Gift {
   number: number;
@@ -187,6 +188,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://www.nestseekers.com/agent/joe-guidi/",
     ctaText: "MORE ABOUT JOE",
     agentVideo: joeGuidiVideo
+  },
+  8: {
+    agentName: "ANGELINA SPIROPOULOS",
+    quote: "Proud to have led our Boston expansion and officially opened the doors to The Masters Division, Nest Seekers Boston office this spring!",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/angelina-spiropoulos",
+    ctaText: "MORE ABOUT ANGELINA",
+    agentVideo: angelinaSpiropoulos
   }
 };
 

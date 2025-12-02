@@ -83,6 +83,7 @@ import robertaFeldmanVideo from "@/assets/agent-videos/roberta-feldman.mp4";
 import sachikoHondaVideo from "@/assets/agent-videos/sachiko-honda.mp4";
 import brettComptonVideo from "@/assets/agent-videos/brett-compton.mp4";
 import annaelKamarVideo from "@/assets/agent-videos/annael-kamar.mp4";
+import joeGuidiVideo from "@/assets/agent-videos/joe-guidi.mp4";
 
 export interface Gift {
   number: number;
@@ -179,6 +180,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/agent/annael-kamar",
     ctaText: "MORE ABOUT ANNAEL",
     agentVideo: annaelKamarVideo
+  },
+  7: {
+    agentName: "JOE GUIDI",
+    quote: "A personal banner moment this year, was the response I received from helping family sell their home in Danvers. This couple was under a lot of strain to sell since they needed the proceeds to purchase a new home in Texas. They expressed their appreciation at how I continually communicated with them and how I was able to help them while always maintaining a positive attitude despite a few setbacks along the way; including a broken sliding glass door that a neighbor accidentally smashed while removing an item from the house. Grateful that my efforts were appreciated and that the couple were able to move on to the next phase of their lives.",
+    ctaUrl: "https://www.nestseekers.com/agent/joe-guidi/",
+    ctaText: "MORE ABOUT JOE",
+    agentVideo: joeGuidiVideo
   }
 };
 

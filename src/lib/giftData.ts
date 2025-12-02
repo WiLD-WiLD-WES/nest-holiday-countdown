@@ -85,6 +85,7 @@ import brettComptonVideo from "@/assets/agent-videos/brett-compton.mp4";
 import annaelKamarVideo from "@/assets/agent-videos/annael-kamar.mp4";
 import joeGuidiVideo from "@/assets/agent-videos/joe-guidi.mp4";
 import angelinaSpiropoulos from "@/assets/agent-videos/angelina-spiropoulos.mp4";
+import antonioSigilloVideo from "@/assets/agent-videos/antonio-sigillo.mp4";
 
 export interface Gift {
   number: number;
@@ -195,6 +196,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/agent/angelina-spiropoulos",
     ctaText: "MORE ABOUT ANGELINA",
     agentVideo: angelinaSpiropoulos
+  },
+  9: {
+    agentName: "ANTONIO SIGILLO",
+    quote: "In 2025, I'm most proud of expanding my rolodex of qualified buyers. After years of studying inventory, refining my processes, and strengthening my negotiation skills, I've become a trusted asset to clients across multiple neighborhoods as their dedicated buyer's representative.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/antonio-sigillo",
+    ctaText: "MORE ABOUT ANTONIO",
+    agentVideo: antonioSigilloVideo
   }
 };
 

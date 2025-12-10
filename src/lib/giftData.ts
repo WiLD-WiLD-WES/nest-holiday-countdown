@@ -88,6 +88,7 @@ import angelinaSpiropoulos from "@/assets/agent-videos/angelina-spiropoulos.mp4"
 import antonioSigilloVideo from "@/assets/agent-videos/antonio-sigillo.mp4";
 import skyeHuffVideo from "@/assets/agent-videos/skye-huff.mp4";
 import johnCarboneVideo from "@/assets/agent-videos/john-carbone.mp4";
+import miaCalabreseVideo from "@/assets/agent-videos/mia-calabrese.mp4";
 
 export interface Gift {
   number: number;
@@ -219,6 +220,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://www.nestseekers.com/agent/john-carbone/",
     ctaText: "MORE ABOUT JOHN",
     agentVideo: johnCarboneVideo
+  },
+  12: {
+    agentName: "MIA CALABRESE",
+    quote: "Had another record-breaking year, and the new addition to my family, Winston!",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/mia-calabrese",
+    ctaText: "MORE ABOUT MIA",
+    agentVideo: miaCalabreseVideo
   }
 };
 

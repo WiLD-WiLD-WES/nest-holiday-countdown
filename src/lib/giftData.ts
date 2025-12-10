@@ -87,6 +87,7 @@ import joeGuidiVideo from "@/assets/agent-videos/joe-guidi.mp4";
 import angelinaSpiropoulos from "@/assets/agent-videos/angelina-spiropoulos.mp4";
 import antonioSigilloVideo from "@/assets/agent-videos/antonio-sigillo.mp4";
 import skyeHuffVideo from "@/assets/agent-videos/skye-huff.mp4";
+import johnCarboneVideo from "@/assets/agent-videos/john-carbone.mp4";
 
 export interface Gift {
   number: number;
@@ -211,6 +212,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/agent/sky-huff",
     ctaText: "MORE ABOUT SKYE",
     agentVideo: skyeHuffVideo
+  },
+  11: {
+    agentName: "JOHN CARBONE",
+    quote: "This year I pushed my work and leadership forward and kept building things that actually matter. And even with setbacks, uncertainty, and real loss, I stayed focused, kept moving, and came out clearer about where I'm headed.",
+    ctaUrl: "https://www.nestseekers.com/agent/john-carbone/",
+    ctaText: "MORE ABOUT JOHN",
+    agentVideo: johnCarboneVideo
   }
 };
 

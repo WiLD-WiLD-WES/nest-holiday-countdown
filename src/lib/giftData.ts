@@ -89,6 +89,7 @@ import antonioSigilloVideo from "@/assets/agent-videos/antonio-sigillo.mp4";
 import skyeHuffVideo from "@/assets/agent-videos/skye-huff.mp4";
 import johnCarboneVideo from "@/assets/agent-videos/john-carbone.mp4";
 import miaCalabreseVideo from "@/assets/agent-videos/mia-calabrese.mp4";
+import amandaWernerVideo from "@/assets/agent-videos/amanda-werner.mp4";
 
 export interface Gift {
   number: number;
@@ -227,6 +228,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/agent/mia-calabrese",
     ctaText: "MORE ABOUT MIA",
     agentVideo: miaCalabreseVideo
+  },
+  13: {
+    agentName: "AMANDA WERNER",
+    quote: "This year, I stepped into my role as Operations Coordinator and found so much purpose in being the steady force behind the scenes. I am proud of the systems I built, the challenges I solved, and the support I provided so our team could shine at the highest level. Knowing that my work helps others succeed is where I feel most fulfilled, and I'm excited to continue growing, contributing, and elevating every part of what we build together.",
+    ctaUrl: "https://www.nestseekers.com/agent/amanda-werner/",
+    ctaText: "MORE ABOUT AMANDA",
+    agentVideo: amandaWernerVideo
   }
 };
 

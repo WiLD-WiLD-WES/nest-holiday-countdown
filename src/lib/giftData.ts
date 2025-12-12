@@ -91,6 +91,7 @@ import johnCarboneVideo from "@/assets/agent-videos/john-carbone.mp4";
 import miaCalabreseVideo from "@/assets/agent-videos/mia-calabrese.mp4";
 import amandaWernerVideo from "@/assets/agent-videos/amanda-werner.mp4";
 import elanBenjaminVideo from "@/assets/agent-videos/elan-benjamin.mp4";
+import justinMezzatestaVideo from "@/assets/agent-videos/justin-mezzatesta.mp4";
 
 export interface Gift {
   number: number;
@@ -243,6 +244,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/agent/elan-urisoff",
     ctaText: "MORE ABOUT ELAN",
     agentVideo: elanBenjaminVideo
+  },
+  15: {
+    agentName: "JUSTIN MEZZATESTA",
+    quote: "2025 demanded precision, strategy, and the ability to solve complex challenges quickly. One of my proudest accomplishments was refining our development playbook. We streamlined processes, tightened our launch strategies, strengthened our pricing models, and built infrastructure that will scale well beyond this year. Breaking records, launching top selling buildings, and delivering for our developers at a high level, even in shifting markets, reinforced what excites me most about this work.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/justin-mezzatesta",
+    ctaText: "MORE ABOUT JUSTIN",
+    agentVideo: justinMezzatestaVideo
   }
 };
 

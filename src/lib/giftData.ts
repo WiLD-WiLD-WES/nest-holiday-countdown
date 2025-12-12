@@ -90,6 +90,7 @@ import skyeHuffVideo from "@/assets/agent-videos/skye-huff.mp4";
 import johnCarboneVideo from "@/assets/agent-videos/john-carbone.mp4";
 import miaCalabreseVideo from "@/assets/agent-videos/mia-calabrese.mp4";
 import amandaWernerVideo from "@/assets/agent-videos/amanda-werner.mp4";
+import elanBenjaminVideo from "@/assets/agent-videos/elan-benjamin.mp4";
 
 export interface Gift {
   number: number;
@@ -235,6 +236,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://www.nestseekers.com/agent/amanda-werner/",
     ctaText: "MORE ABOUT AMANDA",
     agentVideo: amandaWernerVideo
+  },
+  14: {
+    agentName: "ELAN BENJAMIN",
+    quote: "This year, I mastered the art of turning delays into deliveries and renters into homeowners. 2025 was my reminder: when I lead with knowledge, I create outcomes others call impossible.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/elan-urisoff",
+    ctaText: "MORE ABOUT ELAN",
+    agentVideo: elanBenjaminVideo
   }
 };
 

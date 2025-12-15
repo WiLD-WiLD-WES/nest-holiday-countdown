@@ -93,6 +93,7 @@ import amandaWernerVideo from "@/assets/agent-videos/amanda-werner.mp4";
 import elanBenjaminVideo from "@/assets/agent-videos/elan-benjamin.mp4";
 import justinMezzatestaVideo from "@/assets/agent-videos/justin-mezzatesta.mp4";
 import tatiaWetzelVideo from "@/assets/agent-videos/tatia-wetzel.mp4";
+import ivyJohnsonVideo from "@/assets/agent-videos/ivy-johnson.mp4";
 
 export interface Gift {
   number: number;
@@ -259,6 +260,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/agent/tatia-wetzel",
     ctaText: "MORE ABOUT TATIA",
     agentVideo: tatiaWetzelVideo
+  },
+  17: {
+    agentName: "IVY JOHNSON",
+    quote: "This year I had the privilege of supporting an expanding and increasingly diverse client portfolio while helping introduce Nest Seekers to the Boston market.\n\nI'm especially proud to have contributed to the opening of our first Massachusetts office, establishing a foundation for meaningful growth and service in the region.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/ivy-johnson",
+    ctaText: "MORE ABOUT IVY",
+    agentVideo: ivyJohnsonVideo
   }
 };
 

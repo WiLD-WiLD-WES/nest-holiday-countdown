@@ -92,6 +92,7 @@ import miaCalabreseVideo from "@/assets/agent-videos/mia-calabrese.mp4";
 import amandaWernerVideo from "@/assets/agent-videos/amanda-werner.mp4";
 import elanBenjaminVideo from "@/assets/agent-videos/elan-benjamin.mp4";
 import justinMezzatestaVideo from "@/assets/agent-videos/justin-mezzatesta.mp4";
+import tatiaWetzelVideo from "@/assets/agent-videos/tatia-wetzel.mp4";
 
 export interface Gift {
   number: number;
@@ -251,6 +252,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/agent/justin-mezzatesta",
     ctaText: "MORE ABOUT JUSTIN",
     agentVideo: justinMezzatestaVideo
+  },
+  16: {
+    agentName: "TATIA WETZEL",
+    quote: "This year was all about helping buyers and sellers get unstuck and move forward with confidence, even in a noisy market. I am most proud of the clients who trusted me to guide them through major life transitions and who ended up feeling they had won both financially and in terms of lifestyle.\n\nI am also proud of how many complex deals we navigated to the finish line, even when it seemed like everything was working against us. Persistence, clear communication, and creative problem-solving proved their value throughout the year.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/tatia-wetzel",
+    ctaText: "MORE ABOUT TATIA",
+    agentVideo: tatiaWetzelVideo
   }
 };
 

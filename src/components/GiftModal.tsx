@@ -151,7 +151,7 @@ export const GiftModal = ({
 
                       {quote ? (
                         <div className="bg-black/20 border-2 border-gold/40 rounded-xl p-6 md:p-8 shadow-xl w-full max-w-xl">
-                          <p className="text-gold text-base md:text-lg leading-relaxed mb-6 text-center" style={{ fontFamily: "'Raleway', sans-serif" }}>
+                          <p className="text-gold text-base md:text-lg leading-relaxed mb-6 text-center whitespace-pre-line" style={{ fontFamily: "'Raleway', sans-serif" }}>
                             "{quote}"
                           </p>
                           

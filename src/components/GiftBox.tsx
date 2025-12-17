@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Lock } from "lucide-react";
 
 // Toggle this to false to disable the loading shimmer effect
-const SHOW_LOADING_FEEDBACK = true;
+const SHOW_LOADING_FEEDBACK = false;
 
 interface GiftBoxProps {
   number: number;

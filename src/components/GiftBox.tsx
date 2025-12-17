@@ -80,6 +80,7 @@ export const GiftBox = ({ number, image, rippedImage, isLocked, isOpened, onClic
             rotateY,
             transformStyle: "preserve-3d",
           }}
+          animate={SHOW_LOADING_FEEDBACK && isOpening ? { scale: [1, 0.95, 1.05, 1] } : {}}
           whileHover={clickable ? { scale: 1.05 } : {}}
           whileTap={clickable ? { scale: 0.95 } : {}}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -89,15 +90,6 @@ export const GiftBox = ({ number, image, rippedImage, isLocked, isOpened, onClic
             alt={`Day ${number}`}
             className="w-full h-full object-cover"
           />
-          
-          {/* Loading state while video buffers - toggle via SHOW_LOADING_FEEDBACK */}
-          {SHOW_LOADING_FEEDBACK && isOpening && !isOpened && (
-            <motion.div
-              className="absolute inset-0 bg-gold/20 z-10"
-              animate={{ opacity: [0.2, 0.5, 0.2] }}
-              transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut" }}
-            />
-          )}
           
           {/* Opening animation video overlay */}
           {isOpening && animationUrl && (

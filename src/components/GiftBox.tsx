@@ -2,6 +2,9 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useState } from "react";
 import { Lock } from "lucide-react";
 
+// Toggle this to false to disable the loading shimmer effect
+const SHOW_LOADING_FEEDBACK = true;
+
 interface GiftBoxProps {
   number: number;
   image: string;
@@ -87,6 +90,15 @@ export const GiftBox = ({ number, image, rippedImage, isLocked, isOpened, onClic
             className="w-full h-full object-cover"
           />
           
+          {/* Loading state while video buffers - toggle via SHOW_LOADING_FEEDBACK */}
+          {SHOW_LOADING_FEEDBACK && isOpening && !isOpened && (
+            <motion.div
+              className="absolute inset-0 bg-gold/20 z-10"
+              animate={{ opacity: [0.2, 0.5, 0.2] }}
+              transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut" }}
+            />
+          )}
+          
           {/* Opening animation video overlay */}
           {isOpening && animationUrl && (
             <video
@@ -94,6 +106,7 @@ export const GiftBox = ({ number, image, rippedImage, isLocked, isOpened, onClic
               autoPlay
               playsInline
               muted
+              preload="auto"
               className="absolute inset-0 w-full h-full object-cover z-20"
               onEnded={onAnimationEnd}
             />

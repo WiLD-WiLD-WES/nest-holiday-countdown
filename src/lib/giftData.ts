@@ -94,6 +94,7 @@ import elanBenjaminVideo from "@/assets/agent-videos/elan-benjamin.mp4";
 import justinMezzatestaVideo from "@/assets/agent-videos/justin-mezzatesta.mp4";
 import tatiaWetzelVideo from "@/assets/agent-videos/tatia-wetzel.mp4";
 import ivyJohnsonVideo from "@/assets/agent-videos/ivy-johnson.mp4";
+import alanDavidsonVideo from "@/assets/agent-videos/alan-davidson.mp4";
 
 export interface Gift {
   number: number;
@@ -267,6 +268,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/agent/ivy-johnson",
     ctaText: "MORE ABOUT IVY",
     agentVideo: ivyJohnsonVideo
+  },
+  18: {
+    agentName: "ALAN DAVIDSON",
+    quote: "This year reminded me that there is always a market for quality, even when conditions are shifting.\n\nI am proud of how many clients I helped identify real value and avoid 'shiny object' distractions.",
+    ctaUrl: "https://www.nestseekers.com/agent/alan-david-2/",
+    ctaText: "MORE ABOUT ALAN",
+    agentVideo: alanDavidsonVideo
   }
 };
 

@@ -96,6 +96,7 @@ import tatiaWetzelVideo from "@/assets/agent-videos/tatia-wetzel.mp4";
 import ivyJohnsonVideo from "@/assets/agent-videos/ivy-johnson.mp4";
 import alanDavidsonVideo from "@/assets/agent-videos/alan-davidson.mp4";
 import nickCalabreseVideo from "@/assets/agent-videos/nick-calabrese.mp4";
+import meganLeightonVideo from "@/assets/agent-videos/megan-leighton.mp4";
 
 export interface Gift {
   number: number;
@@ -283,6 +284,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/agent/nick-calabrese",
     ctaText: "MORE ABOUT NICK",
     agentVideo: nickCalabreseVideo
+  },
+  20: {
+    agentName: "MEGAN LEIGHTON",
+    quote: "In a changing market, I focused on being the calm, strategic voice in the room.\n\nThe most rewarding part was turning uncertainty into clarity for my clients and watching them land in homes that truly fit the next chapter of their lives.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/megan-leighton",
+    ctaText: "MORE ABOUT MEGAN",
+    agentVideo: meganLeightonVideo
   }
 };
 

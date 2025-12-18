@@ -95,6 +95,7 @@ import justinMezzatestaVideo from "@/assets/agent-videos/justin-mezzatesta.mp4";
 import tatiaWetzelVideo from "@/assets/agent-videos/tatia-wetzel.mp4";
 import ivyJohnsonVideo from "@/assets/agent-videos/ivy-johnson.mp4";
 import alanDavidsonVideo from "@/assets/agent-videos/alan-davidson.mp4";
+import nickCalabreseVideo from "@/assets/agent-videos/nick-calabrese.mp4";
 
 export interface Gift {
   number: number;
@@ -275,6 +276,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://www.nestseekers.com/agent/alan-david-2/",
     ctaText: "MORE ABOUT ALAN",
     agentVideo: alanDavidsonVideo
+  },
+  19: {
+    agentName: "NICK CALABRESE",
+    quote: "The biggest win for me this year was building trust with clients who started out skeptical about the market. Watching them close on great opportunities and feel confident about their investment made every late-night call and strategy session worth it.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/nick-calabrese",
+    ctaText: "MORE ABOUT NICK",
+    agentVideo: nickCalabreseVideo
   }
 };
 

@@ -97,6 +97,7 @@ import ivyJohnsonVideo from "@/assets/agent-videos/ivy-johnson.mp4";
 import alanDavidsonVideo from "@/assets/agent-videos/alan-davidson.mp4";
 import nickCalabreseVideo from "@/assets/agent-videos/nick-calabrese.mp4";
 import meganLeightonVideo from "@/assets/agent-videos/megan-leighton.mp4";
+import saraTraversoVideo from "@/assets/agent-videos/sara-traverso.mp4";
 
 export interface Gift {
   number: number;
@@ -291,6 +292,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/agent/megan-leighton",
     ctaText: "MORE ABOUT MEGAN",
     agentVideo: meganLeightonVideo
+  },
+  21: {
+    agentName: "SARA TRAVERSO",
+    quote: "In 2025, I'm most proud of navigating the New York market with confidence, turning complexity into opportunity for my clients, and positioning Italy as a real, strategic real estate choice for international buyers: not just a dream, but a smart move.\n\nTwo markets. One vision. New York & Italy.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/sara-traverso",
+    ctaText: "MORE ABOUT SARA",
+    agentVideo: saraTraversoVideo
   }
 };
 

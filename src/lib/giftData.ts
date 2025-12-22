@@ -98,6 +98,7 @@ import alanDavidsonVideo from "@/assets/agent-videos/alan-davidson.mp4";
 import nickCalabreseVideo from "@/assets/agent-videos/nick-calabrese.mp4";
 import meganLeightonVideo from "@/assets/agent-videos/megan-leighton.mp4";
 import saraTraversoVideo from "@/assets/agent-videos/sara-traverso.mp4";
+import jeanneParkVideo from "@/assets/agent-videos/jeanne-park.mp4";
 
 export interface Gift {
   number: number;
@@ -299,6 +300,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/agent/sara-traverso",
     ctaText: "MORE ABOUT SARA",
     agentVideo: saraTraversoVideo
+  },
+  22: {
+    agentName: "JEANNE PARK",
+    quote: "This year has been a big one both professionally and personally. I've loved guiding clients through a shifting market and seeing them land in homes that truly fit their next chapter, and welcoming a new addition to our growing family made every closing feel that much more meaningful.\n\nI'm excited to bring that same energy, care, and perspective into 2026 as we continue to grow together.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/jeann-park",
+    ctaText: "MORE ABOUT JEANNE",
+    agentVideo: jeanneParkVideo
   }
 };
 

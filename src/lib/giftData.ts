@@ -99,6 +99,7 @@ import nickCalabreseVideo from "@/assets/agent-videos/nick-calabrese.mp4";
 import meganLeightonVideo from "@/assets/agent-videos/megan-leighton.mp4";
 import saraTraversoVideo from "@/assets/agent-videos/sara-traverso.mp4";
 import jeanneParkVideo from "@/assets/agent-videos/jeanne-park.mp4";
+import edRomeVideo from "@/assets/agent-videos/ed-rome.mp4";
 
 export interface Gift {
   number: number;
@@ -307,6 +308,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/agent/jeann-park",
     ctaText: "MORE ABOUT JEANNE",
     agentVideo: jeanneParkVideo
+  },
+  23: {
+    agentName: "ED ROME",
+    quote: "I'm grateful to have been part of launching our new Boston office this year and to be learning the ropes alongside such a driven, talented team. Opening this space in a market with so much energy and potential has been a huge growth moment for me, both personally and professionally.\n\nI'm excited to carry that momentum into the new year, deepen my roots in Greater Boston, and keep showing up as a stronger, sharper advisor with every deal.",
+    ctaUrl: "https://nestseekersmastersdivision.com/team",
+    ctaText: "MORE ABOUT ED",
+    agentVideo: edRomeVideo
   }
 };
 

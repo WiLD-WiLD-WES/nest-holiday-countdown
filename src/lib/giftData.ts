@@ -100,6 +100,7 @@ import meganLeightonVideo from "@/assets/agent-videos/megan-leighton.mp4";
 import saraTraversoVideo from "@/assets/agent-videos/sara-traverso.mp4";
 import jeanneParkVideo from "@/assets/agent-videos/jeanne-park.mp4";
 import edRomeVideo from "@/assets/agent-videos/ed-rome.mp4";
+import melanieTringaliVideo from "@/assets/agent-videos/melanie-tringali.mp4";
 
 export interface Gift {
   number: number;
@@ -315,6 +316,13 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://nestseekersmastersdivision.com/team",
     ctaText: "MORE ABOUT ED",
     agentVideo: edRomeVideo
+  },
+  24: {
+    agentName: "MELANIE TRINGALI",
+    quote: "The highlight of my year was watching client's step into homes that truly fit their lives, not just their budgets.\n\nWhen we get the right space, the right neighborhood, and the right timing to line up, it feels like magic, even though it comes from a lot of hard work behind the scenes.",
+    ctaUrl: "https://www.linkedin.com/in/melanietringalirealtor/",
+    ctaText: "MORE ABOUT MELANIE",
+    agentVideo: melanieTringaliVideo
   }
 };
 

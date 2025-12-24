@@ -101,6 +101,7 @@ import saraTraversoVideo from "@/assets/agent-videos/sara-traverso.mp4";
 import jeanneParkVideo from "@/assets/agent-videos/jeanne-park.mp4";
 import edRomeVideo from "@/assets/agent-videos/ed-rome.mp4";
 import melanieTringaliVideo from "@/assets/agent-videos/melanie-tringali.mp4";
+import biancaDalessioVideo from "@/assets/agent-videos/bianca-dalessio.mp4";
 
 export interface Gift {
   number: number;
@@ -116,6 +117,7 @@ export interface Gift {
   quote?: string;
   ctaUrl?: string;
   ctaText?: string;
+  isCeo?: boolean;
 }
 
 // Direct mapping of all 25 unique gift images
@@ -155,7 +157,7 @@ const animationUrls = [
 ];
 
 // Agent data for days 1-5
-const agentData: Record<number, { agentName: string; quote: string; ctaUrl: string; ctaText: string; agentVideo?: string }> = {
+const agentData: Record<number, { agentName: string; quote: string; ctaUrl: string; ctaText: string; agentVideo?: string; isCeo?: boolean }> = {
   1: {
     agentName: "ANGELA PAGE",
     quote: "My biggest win this year was watching one client relationship turn into five separate transactions. It was a powerful reminder that this business always rewards relationships first. When you lead with trust and service, the deals follow. Success is built one genuine connection at a time.",
@@ -323,6 +325,14 @@ const agentData: Record<number, { agentName: string; quote: string; ctaUrl: stri
     ctaUrl: "https://www.linkedin.com/in/melanietringalirealtor/",
     ctaText: "MORE ABOUT MELANIE",
     agentVideo: melanieTringaliVideo
+  },
+  25: {
+    agentName: "BIANCA D'ALESSIO",
+    quote: "2025 pushed me to grow as a leader and strengthened the way I show up in this business. As a team, we broke records across our portfolio. We took over, repositioned, and sold out stalled projects, set price-per-square-foot records in Williamsburg and Greenpoint, represented the top performing building in Park Slope, and hit major milestones across our Manhattan developments. Watching The Masters Division meet every challenge with focus and discipline has been incredibly rewarding.\n\nOn a personal level, publishing Mastering Intentions and seeing it become an Amazon bestseller reminded me what is possible when you bet on yourself. Standing on more stages this year, sharing my story, and connecting with people who are committed to growth has been deeply fulfilling.\n\nThis year reinforced the power of clarity and the value of honoring the leader I'm becoming.",
+    ctaUrl: "https://nestseekersmastersdivision.com/agent/bianca-dalessio",
+    ctaText: "MORE ABOUT BIANCA",
+    agentVideo: biancaDalessioVideo,
+    isCeo: true
   }
 };
 
@@ -344,6 +354,7 @@ export const gifts: Gift[] = Array.from({ length: 25 }, (_, i) => {
     quote: agent?.quote,
     ctaUrl: agent?.ctaUrl,
     ctaText: agent?.ctaText,
+    isCeo: agent?.isCeo,
   };
 });
 

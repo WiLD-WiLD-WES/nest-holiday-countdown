@@ -97,7 +97,6 @@ const Index = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          {/* TEST MODE TOGGLE - Hidden for launch, uncomment to reactivate
           <div className="flex items-center gap-3">
             <Label htmlFor="test-mode" className="text-sm text-muted-foreground">
               Test Mode (All Unlocked)
@@ -108,7 +107,6 @@ const Index = () => {
               onCheckedChange={setTestMode}
             />
           </div>
-          */}
 
           {/* Re-Wrap Button */}
           <Button
@@ -189,6 +187,7 @@ const Index = () => {
         quote={gifts.find(g => g.number === selectedGift)?.quote}
         ctaUrl={gifts.find(g => g.number === selectedGift)?.ctaUrl}
         ctaText={gifts.find(g => g.number === selectedGift)?.ctaText}
+        isCeo={gifts.find(g => g.number === selectedGift)?.isCeo}
       />
     </div>
   );

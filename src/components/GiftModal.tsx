@@ -17,6 +17,7 @@ interface GiftModalProps {
   quote?: string;
   ctaUrl?: string;
   ctaText?: string;
+  isCeo?: boolean;
 }
 
 export const GiftModal = ({ 
@@ -28,7 +29,8 @@ export const GiftModal = ({
   agentVideo, 
   quote, 
   ctaUrl, 
-  ctaText 
+  ctaText,
+  isCeo 
 }: GiftModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
   
@@ -150,7 +152,7 @@ export const GiftModal = ({
                       </div>
 
                       {quote ? (
-                        <div className="bg-black/20 border-2 border-gold/40 rounded-xl p-6 md:p-8 shadow-xl w-full max-w-xl">
+                        <div className={`bg-black/20 border-2 border-gold/40 rounded-xl p-6 md:p-8 shadow-xl w-full max-w-xl ${isCeo ? 'ceo-quote-shimmer' : ''}`}>
                           <p className="text-gold text-base md:text-lg leading-relaxed mb-6 text-center whitespace-pre-line" style={{ fontFamily: "'Raleway', sans-serif" }}>
                             "{quote}"
                           </p>

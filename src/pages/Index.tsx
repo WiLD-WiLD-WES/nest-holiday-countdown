@@ -97,6 +97,7 @@ const Index = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
+          {/* TEST MODE TOGGLE - Hidden for launch, uncomment to reactivate
           <div className="flex items-center gap-3">
             <Label htmlFor="test-mode" className="text-sm text-muted-foreground">
               Test Mode (All Unlocked)
@@ -107,6 +108,7 @@ const Index = () => {
               onCheckedChange={setTestMode}
             />
           </div>
+          */}
 
           {/* Re-Wrap Button */}
           <Button
